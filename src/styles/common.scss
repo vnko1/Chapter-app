@@ -1,0 +1,25 @@
+.nav-active {
+  overflow: hidden;
+}
+
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    @apply hidden;
+  }
+}
+
+.visually-hidden {
+  @apply absolute w-[1px] h-[1px] overflow-hidden border-0 p-0 -m-[1px] whitespace-nowrap;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.hide-element {
+  @apply invisible absolute;
+}
+
+.container {
+  @apply w-full mx-auto md:max-w-[744px] lg:max-w-[1920px];
+}

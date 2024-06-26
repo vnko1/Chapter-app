@@ -11,6 +11,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      darkMode: "selector",
       screens: {
         sm: "375px",
         md: "744px",
