@@ -60,9 +60,6 @@ const TextField: FC<TextFieldProps> = ({
       <label className="text-field__label">
         {label && <span className="text-field__label-text">{label}</span>}
         <span className="text-field__holder">
-          {leftIcon ? (
-            <Icon icon={leftIcon} size={iconSize} className="left-icon" />
-          ) : null}
           <input
             {...register(name)}
             {...props}
@@ -74,9 +71,25 @@ const TextField: FC<TextFieldProps> = ({
             onBlur={field.onBlur}
             ref={field.ref}
             className={inputBaseClassNames}
+            autoComplete="off"
           />
+          {leftIcon ? (
+            <Icon
+              icon={leftIcon}
+              size={iconSize}
+              className="icon icon--left"
+              removeInlineStyle
+            />
+          ) : null}
           {rightIcon ? (
-            <Icon icon={rightIcon} size={iconSize} className="right-icon" />
+            <button>
+              <Icon
+                icon={rightIcon}
+                size={iconSize}
+                className="icon icon--right"
+                removeInlineStyle
+              />
+            </button>
           ) : null}
         </span>
       </label>

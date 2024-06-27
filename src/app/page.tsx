@@ -18,7 +18,12 @@ export default function Home() {
         BUTTON
       </Button>
       <FormProvider {...nethods}>
-        <TextField id="name" name="name" leftIcon={IconsEnum.} />
+        <TextField
+          id="name"
+          name="name"
+          rightIcon={IconsEnum.Mic}
+          placeholder="ad"
+        />
       </FormProvider>
     </main>
   );
