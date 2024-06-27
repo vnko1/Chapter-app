@@ -10,7 +10,7 @@ import { Icon } from "@/components";
 
 import { PasswordFieldProps, TypePasswordStrength } from "./PasswordField.type";
 import { usePasswordStrength } from "./usePasswordStrength";
-import styles from "./PasswordField.module.scss";
+import "./PasswordField.scss";
 
 const PasswordField: FC<PasswordFieldProps> = ({
   id,
@@ -21,7 +21,9 @@ const PasswordField: FC<PasswordFieldProps> = ({
   strengthMessage = "Password must be at least 8 characters long, include only Latin letters, one uppercase letter, one number, space symbol mustn't be included",
   helperLink,
   helperText,
+  size,
   onChange,
+  iconSize = 24,
   ...props
 }) => {
   const { field } = useController({ name });
@@ -43,9 +45,16 @@ const PasswordField: FC<PasswordFieldProps> = ({
   const isErrorValidation = isTouched && error;
 
   const validationClassname = cn({
-    [styles["text-field--success"]]: isTouched && !error,
-    [styles["text-field--has-error"]]: isErrorValidation,
+    ["pass-field--has-error"]: isErrorValidation,
   });
+
+  const inputSizeClassNames = cn({
+    ["input--small"]: size === "small",
+    ["input--normal"]: size === "normal",
+    ["input--large"]: size === "large",
+  });
+
+  const inputBaseClassNames = cn("pass-field__input", inputSizeClassNames);
 
   const onHandleChangeField = (event: ChangeEvent<HTMLInputElement>) => {
     field.onChange(event);
@@ -58,47 +67,46 @@ const PasswordField: FC<PasswordFieldProps> = ({
   };
 
   return (
-    <div className={cn(styles["text-field"], validationClassname, classNames)}>
-      <label htmlFor={id} className={styles["text-field__label"]}>
-        {label && <p className={styles["text-field__label-text"]}>{label}</p>}
-        <div className={styles["text-field__holder"]}>
+    <div className={cn("pass-field", validationClassname, classNames)}>
+      <label htmlFor={id} className="pass-field__label">
+        {label && <p className="pass-field__label-text">{label}</p>}
+        <div className="pass-field__holder">
           <input
             {...register(name)}
             {...props}
             id={id}
             name={name}
             type={isVisiblePassword ? "text" : "password"}
-            className={styles["text-field__input"]}
+            className={inputBaseClassNames}
             onChange={onHandleChangeField}
+            onBlur={field.onBlur}
+            ref={field.ref}
+            autoComplete="off"
           />
           {values?.length ? (
             <Icon
-              icon={isVisiblePassword ? IconsEnum.Eye : IconsEnum.Eye_Off}
-              size={18}
+              icon={isVisiblePassword ? IconsEnum.Eye : IconsEnum.Non_eye}
+              size={iconSize}
               color="#8E8E93"
               onClick={() => setIsVisiblePassword(!isVisiblePassword)}
-              className={styles["text-field__icon"]}
+              className="pass-field__icon"
+              removeInlineStyle
             />
           ) : null}
         </div>
       </label>
       {strength && !helperText && values && !isTouched && (
-        <p className={styles["text-field__requirements"]}>{strengthMessage}</p>
+        <p className="pass-field__requirements">{strengthMessage}</p>
       )}
-      <div className={styles["text-field__helper-box"]}>
+      <div className="pass-field__helper-box">
         {isErrorValidation ? (
-          <p className={styles["text-field__error-message"]}>
-            {error.message as string}
-          </p>
+          <p className="pass-field__error-message">{error.message}</p>
         ) : null}
         {helperText && !isErrorValidation ? (
-          <p className={styles["text-field__label-sub-text"]}>{helperText}</p>
+          <p className="helper-text">{helperText}</p>
         ) : null}
         {helperLink ? (
-          <Link
-            href={helperLink.href}
-            className={styles["text-field__helper-link"]}
-          >
+          <Link href={helperLink.href} className="pass-field__helper-link">
             {helperLink.text}
           </Link>
         ) : null}
@@ -106,16 +114,15 @@ const PasswordField: FC<PasswordFieldProps> = ({
       {strength && passwordValue && values.length && passwordStrength >= 0 ? (
         <div
           className={cn(
-            styles["strength-progress"],
-            styles[`strength-progress--${typePasswordStrengthClassname}`]
+            "strength-progress",
+            `strength-progress--${typePasswordStrengthClassname}`
           )}
         >
           {Array.from(Array(LENGTH_STRENGTH).keys()).map((item) => (
             <div
               key={item}
-              className={cn(styles["strength-progress__item"], {
-                [styles["strength-progress__item--active"]]:
-                  item < passwordStrength,
+              className={cn("strength-progress__item", {
+                ["strength-progress__item--active"]: item < passwordStrength,
               })}
             ></div>
           ))}
