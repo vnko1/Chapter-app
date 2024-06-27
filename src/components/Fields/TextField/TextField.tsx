@@ -36,7 +36,7 @@ const TextField: FC<TextFieldProps> = ({
   const isErrorValidation = isTouched && error;
 
   const validationClassnames = cn({
-    ["text-field--has-error"]: isErrorValidation,
+    ["text-field--has-error"]: !isErrorValidation,
   });
 
   const inputSizeClassNames = cn(
@@ -55,6 +55,7 @@ const TextField: FC<TextFieldProps> = ({
     field.onChange(event);
     onChange && onChange(event);
   };
+
   return (
     <div className={cn("text-field", validationClassnames, classNames)}>
       <label className="text-field__label">
@@ -82,14 +83,12 @@ const TextField: FC<TextFieldProps> = ({
             />
           ) : null}
           {rightIcon ? (
-            <button>
-              <Icon
-                icon={rightIcon}
-                size={iconSize}
-                className="icon icon--right"
-                removeInlineStyle
-              />
-            </button>
+            <Icon
+              icon={rightIcon}
+              size={iconSize}
+              removeInlineStyle
+              className="icon icon--right"
+            />
           ) : null}
         </span>
       </label>

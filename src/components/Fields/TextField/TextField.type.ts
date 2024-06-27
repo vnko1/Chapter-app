@@ -14,5 +14,4 @@ export type TextFieldProps = {
   leftIcon?: IconsEnum;
   rightIcon?: IconsEnum;
   iconSize?: number;
-  onIconClick?:()=>void
 } & Partial<InputHTMLAttributes<HTMLInputElement>>;

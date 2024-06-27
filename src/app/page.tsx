@@ -21,6 +21,7 @@ export default function Home() {
         <TextField
           id="name"
           name="name"
+          leftIcon={IconsEnum.Mic}
           rightIcon={IconsEnum.Mic}
           placeholder="ad"
         />
