@@ -7,7 +7,8 @@ export type PasswordFieldProps = {
   strength?: boolean;
   classNames?: string;
   strengthMessage?: string;
-  additionalLabel?: string;
+  helperText?: string;
+  size?: "small" | "normal" | "large";
   helperLink?: {
     text: string;
     href: string;
