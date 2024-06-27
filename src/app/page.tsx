@@ -1,6 +1,7 @@
 "use client";
 import { Button, TextField } from "@/components";
 import { useThemeToggler } from "@/hooks";
+import { IconsEnum } from "@/types";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
         BUTTON
       </Button>
       <FormProvider {...nethods}>
-        <TextField id="name" name="name" />
+        <TextField id="name" name="name" leftIcon={IconsEnum.} />
       </FormProvider>
     </main>
   );

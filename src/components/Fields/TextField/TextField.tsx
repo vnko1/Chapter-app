@@ -18,8 +18,11 @@ const TextField: FC<TextFieldProps> = ({
   showSuccessIcon = false,
   customErrorMessage,
   additionalLabel,
-  onChange,
   size = "normal",
+  iconSize = 24,
+  leftIcon,
+  rightIcon,
+  onChange,
   ...props
 }) => {
   const { field, fieldState } = useController({ name });
@@ -32,18 +35,34 @@ const TextField: FC<TextFieldProps> = ({
   const isSuccessValidation = isTouched && !error;
   const isErrorValidation = isTouched && error;
 
-  const validationClassname = cn({
+  const validationClassnames = cn({
     ["text-field--has-error"]: isErrorValidation,
   });
+
+  const inputSizeClassNames = cn(
+    {
+      ["input--small"]: size === "small",
+      ["input--normal"]: size === "normal",
+      ["input--large"]: size === "large",
+    },
+    { ["left-icon"]: !!leftIcon },
+    { ["right-icon"]: !!rightIcon }
+  );
+
+  const inputBaseClassNames = cn("text-field__input", inputSizeClassNames);
 
   const onHandleChangeField = (event: ChangeEvent<HTMLInputElement>) => {
     field.onChange(event);
     onChange && onChange(event);
   };
   return (
-    <div>
-      <label>
-        <span>
+    <div className={cn("text-field", validationClassnames, classNames)}>
+      <label className="text-field__label">
+        {label && <span className="text-field__label-text">{label}</span>}
+        <span className="text-field__holder">
+          {leftIcon ? (
+            <Icon icon={leftIcon} size={iconSize} className="left-icon" />
+          ) : null}
           <input
             {...register(name)}
             {...props}
@@ -54,7 +73,11 @@ const TextField: FC<TextFieldProps> = ({
             onChange={onHandleChangeField}
             onBlur={field.onBlur}
             ref={field.ref}
+            className={inputBaseClassNames}
           />
+          {rightIcon ? (
+            <Icon icon={rightIcon} size={iconSize} className="right-icon" />
+          ) : null}
         </span>
       </label>
     </div>
