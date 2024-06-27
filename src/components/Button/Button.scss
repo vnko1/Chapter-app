@@ -1,0 +1,77 @@
+.btn {
+  @apply cursor-pointer relative inline-flex items-center justify-center text-base font-medium rounded-md leading-xl tracking-[0.176px] transition-all duration-150;
+
+  &.btn--loading {
+    @apply animate-pulse pointer-events-none;
+  }
+
+  &.btn--full-width {
+    @apply w-full;
+  }
+
+  &.btn--small {
+    @apply px-0-xl py-0-md gap-0-xl;
+
+    &.btn--icon-right {
+      @apply flex-row-reverse;
+    }
+  }
+
+  &.btn--normal {
+    @apply px-1-sm py-0-xl gap-1-sm;
+
+    &.btn--icon-right {
+      @apply flex-row-reverse;
+    }
+  }
+
+  &.btn--large {
+    @apply px-1-lg py-1-sm gap-1-lg text-lg font-semibold leading-h_xs tracking-[0.22px];
+
+    &.btn--icon-right {
+      @apply flex-row-reverse;
+    }
+  }
+
+  &.btn--primary {
+    &.btn--contained {
+      @apply text-bg-primary-light dark:text-bg-primary-dark bg-primary-default-light dark:bg-primary-default-dark disabled:bg-primary-disabled-light disabled:dark:bg-primary-disabled-dark hover:bg-primary-hover-light  focus:bg-primary-hover-light dark:focus:bg-primary-hover-dark dark:hover:bg-primary-hover-dark;
+    }
+
+    &.btn--outlined {
+      @apply text-primary-default-light dark:text-primary-default-dark bg-transparent border border-primary-default-light dark:border-primary-default-dark hover:text-primary-hover-light focus:text-primary-hover-light dark:hover:text-primary-hover-dark dark:focus:text-primary-hover-dark hover:border-primary-hover-light focus:border-primary-hover-light dark:hover:border-primary-hover-dark dark:focus:border-primary-hover-dark disabled:text-primary-disabled-light dark:disabled:text-primary-disabled-dark disabled:border-primary-disabled-light dark:disabled:border-primary-disabled-dark;
+    }
+
+    &.btn--text {
+      @apply bg-transparent text-primary-default-light dark:text-primary-default-dark  hover:text-primary-hover-light  focus:text-primary-hover-light dark:hover:text-primary-hover-dark dark:focus:text-primary-hover-dark disabled:text-primary-disabled-light dark:disabled:text-primary-disabled-dark;
+    }
+  }
+
+  &.btn--error {
+    &.btn--contained {
+      @apply bg-error-primary-light dark:bg-error-primary-dark  hover:bg-error-light-light focus:bg-error-light-light  dark:focus:bg-error-light-dark dark:hover:bg-error-light-dark disabled:bg-primary-disabled-light dark:disabled:bg-primary-disabled-dark text-bg-primary-light dark:text-bg-primary-dark;
+    }
+
+    &.btn--outlined {
+      @apply border border-error-primary-light dark:border-error-primary-dark bg-transparent text-error-primary-light dark:text-error-primary-dark focus:border-error-light-light hover:border-error-light-light dark:hover:border-error-light-dark dark:focus:border-error-light-dark  hover:text-error-light-light focus:text-error-light-light dark:hover:text-error-light-dark dark:focus:text-error-light-dark disabled:text-primary-disabled-light dark:disabled:text-primary-disabled-dark disabled:border-primary-disabled-light dark:disabled:border-primary-disabled-dark;
+    }
+
+    &.btn--text {
+      @apply bg-transparent text-error-primary-light dark:text-error-primary-dark hover:text-error-light-light focus:text-error-light-light dark:hover:text-error-light-dark dark:focus:text-error-light-dark disabled:text-primary-disabled-light dark:disabled:text-primary-disabled-dark;
+    }
+  }
+
+  &.btn--positive {
+    &.btn--contained {
+      @apply bg-positive-primary-light dark:bg-positive-primary-dark text-bg-primary-light dark:text-bg-primary-dark hover:bg-positive-light-light focus:bg-positive-light-light dark:hover:bg-positive-light-dark dark:focus:bg-positive-light-dark disabled:bg-primary-disabled-light dark:disabled:bg-primary-disabled-dark;
+    }
+
+    &.btn--outlined {
+      @apply bg-transparent border border-positive-primary-light dark:border-positive-primary-dark hover:border-positive-light-light focus:border-positive-light-light dark:hover:border-positive-light-dark dark:focus:border-positive-light-dark disabled:border-primary-disabled-light dark:disabled:border-primary-disabled-dark text-positive-primary-light dark:text-positive-primary-dark hover:text-positive-light-light focus:text-positive-light-light dark:hover:text-positive-light-dark dark:focus:text-positive-light-dark disabled:text-primary-disabled-light dark:disabled:text-primary-disabled-dark;
+    }
+
+    .btn--text {
+      @apply bg-transparent text-positive-primary-light dark:text-positive-primary-dark hover:text-positive-light-light  focus:text-positive-light-light dark:hover:text-positive-light-dark dark:focus:text-positive-light-dark disabled:text-primary-disabled-light dark:disabled:text-primary-disabled-dark;
+    }
+  }
+}
