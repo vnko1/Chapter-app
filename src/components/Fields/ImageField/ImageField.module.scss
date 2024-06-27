@@ -1,0 +1,11 @@
+.picture-field {
+  @apply text-center w-full;
+
+  &__input {
+    @apply hidden;
+  }
+
+  &__image {
+    @apply relative mx-auto overflow-hidden;
+  }
+}
