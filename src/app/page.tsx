@@ -1,9 +1,11 @@
 "use client";
-import { Button } from "@/components";
+import { Button, TextField } from "@/components";
 import { useThemeToggler } from "@/hooks";
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function Home() {
   const themeToggle = useThemeToggler();
+  const nethods = useForm();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -14,6 +16,9 @@ export default function Home() {
       >
         BUTTON
       </Button>
+      <FormProvider {...nethods}>
+        <TextField id="name" name="name" />
+      </FormProvider>
     </main>
   );
 }
