@@ -4,7 +4,7 @@ import cn from "classnames";
 
 import { Icon } from "@/components";
 import { ButtonProps } from "./Button.type";
-import styles from "./Button.module.scss";
+import "./Button.scss";
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -21,40 +21,40 @@ const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const variantClassNames = cn({
-    [styles["btn--contained"]]: variant === "contained",
-    [styles["btn--outlined"]]: variant === "outlined",
-    [styles["btn--text"]]: variant === "text",
+    ["btn--contained"]: variant === "contained",
+    ["btn--outlined"]: variant === "outlined",
+    ["btn--text"]: variant === "text",
   });
 
   const sizeClassNames = cn({
-    [styles["btn--small"]]: size === "small",
-    [styles["btn--normal"]]: size === "normal",
-    [styles["btn--large"]]: size === "large",
+    ["btn--small"]: size === "small",
+    ["btn--normal"]: size === "normal",
+    ["btn--large"]: size === "large",
   });
 
   const colorClassNames = cn({
-    [styles["btn--primary"]]: color === "primary",
-    [styles["btn--secondary"]]: color === "secondary",
-    [styles["btn--error"]]: color === "error",
-    [styles["btn--positive"]]: color === "positive",
+    ["btn--primary"]: color === "primary",
+    ["btn--secondary"]: color === "secondary",
+    ["btn--error"]: color === "error",
+    ["btn--positive"]: color === "positive",
   });
 
   const alignIconClassNames = cn({
-    [styles["btn--icon-left"]]: alignIcon === "left",
-    [styles["btn--icon-right"]]: alignIcon === "right",
+    ["btn--icon-left"]: alignIcon === "left",
+    ["btn--icon-right"]: alignIcon === "right",
   });
 
   const baseClassNames = cn(
-    styles["btn"],
+    "btn",
     variantClassNames,
     sizeClassNames,
     colorClassNames,
     alignIconClassNames,
     {
-      [styles["btn--loading"]]: isLoading,
+      ["btn--loading"]: isLoading,
     },
     {
-      [styles["btn--full-width"]]: fullWidth,
+      ["btn--full-width"]: fullWidth,
     },
     classNames
   );

@@ -9,9 +9,9 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "selector",
   theme: {
     extend: {
-      darkMode: "selector",
       screens: {
         sm: "375px",
         md: "744px",
