@@ -7,8 +7,7 @@ export type TextFieldProps = {
   classNames?: string;
   label?: string;
   showSuccessIcon?: boolean;
-  additionalLabel?: string;
-  customErrorMessage?: string | null;
+  helperText?: string;
   size?: "small" | "normal" | "large";
   fullWidth?: boolean;
   leftIcon?: IconsEnum;

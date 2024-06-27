@@ -16,8 +16,7 @@ const TextField: FC<TextFieldProps> = ({
   name,
   type = "text",
   showSuccessIcon = false,
-  customErrorMessage,
-  additionalLabel,
+  helperText,
   size = "normal",
   iconSize = 24,
   leftIcon,
@@ -36,7 +35,7 @@ const TextField: FC<TextFieldProps> = ({
   const isErrorValidation = isTouched && error;
 
   const validationClassnames = cn({
-    ["text-field--has-error"]: !isErrorValidation,
+    ["text-field--has-error"]: isErrorValidation,
   });
 
   const inputSizeClassNames = cn(
@@ -78,11 +77,11 @@ const TextField: FC<TextFieldProps> = ({
             <Icon
               icon={leftIcon}
               size={iconSize}
-              className="icon icon--left"
               removeInlineStyle
+              className="icon icon--left"
             />
           ) : null}
-          {rightIcon ? (
+          {!showSuccessIcon && rightIcon ? (
             <Icon
               icon={rightIcon}
               size={iconSize}
@@ -90,8 +89,22 @@ const TextField: FC<TextFieldProps> = ({
               className="icon icon--right"
             />
           ) : null}
+          {showSuccessIcon && isSuccessValidation ? (
+            <Icon
+              icon={IconsEnum.Ok}
+              size={iconSize}
+              removeInlineStyle
+              className="icon icon--right"
+            />
+          ) : null}
         </span>
       </label>
+      <div className="text-field__helper-box">
+        {isErrorValidation ? <p className="error">{error.message}</p> : null}
+        {helperText && !values.length ? (
+          <p className="helper-text">{helperText}</p>
+        ) : null}
+      </div>
     </div>
   );
 };
