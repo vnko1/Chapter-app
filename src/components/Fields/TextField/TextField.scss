@@ -23,7 +23,7 @@
 
   &__label {
     &-text {
-      @apply mb-0-xl text-xxs leading-sm font-normal text-[#291A04] md:text-xs md:leading-base md:tracking-[0.132px];
+      @apply mb-0-xl text-xxs leading-sm font-normal text-text-subtitle-light dark:text-text-subtitle-dark md:text-xs md:leading-base md:tracking-[0.132px];
     }
   }
 
@@ -58,6 +58,10 @@
 
     &:disabled {
       @apply bg-primary-disabled-light dark:bg-primary-disabled-dark text-line-disabled-light dark:text-line-disabled-dark border-line-disabled-light dark:border-line-disabled-dark;
+
+      & + .icon {
+        @apply stroke-line-disabled-light dark:stroke-line-disabled-dark;
+      }
     }
 
     &.input--small {

@@ -3,18 +3,15 @@ import { Button, TextField } from "@/components";
 import { useThemeToggler } from "@/hooks";
 
 import { FormProvider, useForm } from "react-hook-form";
+import { Logo } from "./ui";
 
 export default function Home() {
-  const themeToggle = useThemeToggler();
+  const { toggleTheme } = useThemeToggler();
   const nethods = useForm();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button
-        variant="contained"
-        color="positive"
-        onClick={() => themeToggle((theme) => !theme)}
-      >
+      <Button variant="contained" color="positive" onClick={toggleTheme}>
         BUTTON
       </Button>
       <FormProvider {...nethods}>

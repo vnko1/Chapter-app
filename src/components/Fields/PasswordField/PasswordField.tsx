@@ -89,7 +89,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
               size={iconSize}
               color="#8E8E93"
               onClick={() => setIsVisiblePassword(!isVisiblePassword)}
-              className="pass-field__icon"
+              className="icon"
               removeInlineStyle
             />
           ) : null}
@@ -99,9 +99,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
         <p className="pass-field__requirements">{strengthMessage}</p>
       )}
       <div className="pass-field__helper-box">
-        {isErrorValidation ? (
-          <p className="pass-field__error-message">{error.message}</p>
-        ) : null}
+        {isErrorValidation ? <p className="error">{error.message}</p> : null}
         {helperText && !isErrorValidation ? (
           <p className="helper-text">{helperText}</p>
         ) : null}
