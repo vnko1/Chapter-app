@@ -3,7 +3,6 @@ import { Button, TextField } from "@/components";
 import { useThemeToggler } from "@/hooks";
 
 import { FormProvider, useForm } from "react-hook-form";
-import { Logo } from "./ui";
 
 export default function Home() {
   const { toggleTheme } = useThemeToggler();
