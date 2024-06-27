@@ -21,11 +21,9 @@ const Button: FC<ButtonProps> = ({
   ...props
 }) => {
   const variantClassNames = cn({
-    [styles["btn--outlined"]]: variant === "outlined",
     [styles["btn--contained"]]: variant === "contained",
+    [styles["btn--outlined"]]: variant === "outlined",
     [styles["btn--text"]]: variant === "text",
-    [styles["btn--error"]]: variant === "error",
-    [styles["btn--positive"]]: variant === "positive",
   });
 
   const sizeClassNames = cn({
@@ -37,6 +35,8 @@ const Button: FC<ButtonProps> = ({
   const colorClassNames = cn({
     [styles["btn--primary"]]: color === "primary",
     [styles["btn--secondary"]]: color === "secondary",
+    [styles["btn--error"]]: color === "error",
+    [styles["btn--positive"]]: color === "positive",
   });
 
   const alignIconClassNames = cn({

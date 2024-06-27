@@ -8,7 +8,7 @@ type ButtonVariantType =
   | "error"
   | "positive";
 type ButtonSizeType = "small" | "normal" | "large";
-type ButtonColorType = "primary" | "secondary";
+type ButtonColorType = "primary" | "secondary" | "error" | "positive";
 type AlignIconType = "left" | "right";
 
 export type ButtonProps = {
