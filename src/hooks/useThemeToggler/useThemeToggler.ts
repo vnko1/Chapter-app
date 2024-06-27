@@ -11,13 +11,12 @@ export const useThemeToggler = () => {
   }, [darkTheme]);
 
   useEffect(() => {
-    if (
+    const isDarkTheme =
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    )
-      setDarkTheme(true);
-    else setDarkTheme(false);
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+    setDarkTheme(isDarkTheme);
   }, []);
 
   return setDarkTheme;
