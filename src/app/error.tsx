@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 
@@ -5,11 +6,9 @@ import { LinksEnum } from "@/types";
 import { Button } from "@/components";
 
 import { Header } from "./ui";
-
 import styles from "./chapter.module.scss";
 
-function NotFound() {
-  throw new Error();
+function Error() {
   return (
     <>
       <Header />
@@ -18,7 +17,7 @@ function NotFound() {
           <div className={`container ${styles["container"]}`}>
             <div className={styles["thumb"]}>
               <Image
-                src="/404.webp"
+                src="/error.webp"
                 alt="not found image"
                 fill
                 style={{ objectFit: "contain" }}
@@ -28,13 +27,8 @@ function NotFound() {
               <h1
                 className={`${styles["title"]} text-text-primary-light dark:text-text-primary-dark`}
               >
-                Oh no! Page not found
+                Oh no ! Something went wrong !
               </h1>
-              <p
-                className={`${styles["text"]} text-text-secondary-light dark:text-text-secondary-dark`}
-              >
-                Sorry, we couldn`t find the page you are looking for.
-              </p>
               <Button
                 href={LinksEnum.HOME}
                 fullWidth
@@ -66,4 +60,4 @@ function NotFound() {
   );
 }
 
-export default NotFound;
+export default Error;
