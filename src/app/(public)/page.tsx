@@ -13,7 +13,12 @@ export default function HomePage() {
         <h1 className={styles["title"]}>Welcome to Chapter</h1>
         <p className={styles["text"]}>Read, discuss, make new friends!</p>
         <div className={styles["buttons"]}>
-          <Button fullWidth size="small" href={LinksEnum.SIGN_UP}>
+          <Button
+            fullWidth
+            size="small"
+            href={LinksEnum.SIGN_UP}
+            classNames={styles["buttons__mob"]}
+          >
             Sign up
           </Button>
           <Button
@@ -21,6 +26,23 @@ export default function HomePage() {
             size="small"
             variant="outlined"
             href={LinksEnum.LOG_IN}
+            classNames={styles["buttons__mob"]}
+          >
+            Log in
+          </Button>
+          <Button
+            fullWidth
+            size="small"
+            href={LinksEnum.SIGN_UP}
+            classNames={styles["buttons__tab"]}
+          >
+            Sign up
+          </Button>
+          <Button
+            fullWidth
+            variant="outlined"
+            href={LinksEnum.LOG_IN}
+            classNames={styles["buttons__tab"]}
           >
             Log in
           </Button>

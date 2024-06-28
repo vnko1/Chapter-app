@@ -1,29 +1,37 @@
 .home-section {
-  @apply pt-[170px] h-screen bg-bg-primary-light;
+  @apply pt-[170px] h-screen bg-bg-primary-light md:pt-[194px];
 }
 
 .title {
-  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold text-[#291A04] mb-0-xl;
+  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold text-[#291A04] mb-0-xl md:mb-1-sm md:text-h_xl md:leading-h1_xs md:tracking-[1.144px] md:font-semibold;
 }
 
 .text {
-  @apply text-center leading-xl tracking-[0.176px] text-[#291A04] text-base font-medium mb-1-lg;
+  @apply text-center leading-xl tracking-[0.176px] text-[#291A04] text-base font-medium mb-1-lg md:text-xl md:leading-h_base md:tracking-[0.528px] md:mb-2-xs;
 }
 
 .buttons {
-  @apply w-full flex flex-col gap-0-xl mb-0-xl;
+  @apply w-full flex flex-col gap-0-xl mb-0-xl md:mb-1-sm md:flex-row md:gap-2-xs;
+
+  &__mob {
+    @apply md:hidden;
+  }
+
+  &__tab {
+    @apply hidden md:block;
+  }
 }
 
 .contact {
-  @apply text-center text-sm leading-lg tracking-[0.154px];
+  @apply text-center text-sm leading-lg tracking-[0.154px] text-[#291A04];
   & > button {
     @apply text-[#1540D9];
   }
 }
 
 .hero {
-  @apply absolute bottom-0 right-0 w-[316px] h-[340px];
+  @apply absolute bottom-0 right-0 w-[316px] h-[340px] md:w-[590px] md:h-[636px];
   &-bg {
-    @apply h-full rounded-[332px] bg-[#F29B1866] blur-[106px];
+    @apply h-full rounded-[332px] bg-[#F29B1866] blur-[106px] md:rounded-[623px];
   }
 }

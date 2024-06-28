@@ -6,7 +6,13 @@ import Link from "next/link";
 import { LinksEnum } from "@/types";
 import { useThemeToggler } from "@/hooks";
 
-const Logo: FC = ({ classNames }: { classNames?: string }) => {
+const Logo: FC = ({
+  classNames,
+  darkTheme = false,
+}: {
+  classNames?: string;
+  darkTheme?: boolean;
+}) => {
   const [isDark, setIsDark] = useState(false);
   const { getCurrentTheme } = useThemeToggler();
 
@@ -20,7 +26,7 @@ const Logo: FC = ({ classNames }: { classNames?: string }) => {
         <Image
           width={276}
           height={74}
-          src={isDark ? "/logo-dark.webp" : "/logo-light.webp"}
+          src={darkTheme && isDark ? "/logo-dark.webp" : "/logo-light.webp"}
           alt="logo"
           priority
         />

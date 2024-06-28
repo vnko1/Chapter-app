@@ -21,5 +21,5 @@
 }
 
 .container {
-  @apply w-full mx-auto md:max-w-[744px] lg:max-w-[1920px] px-1-lg md:px-4-xs;
+  @apply w-full max-w-full mx-auto md:max-w-[744px] lg:max-w-[1920px] px-1-lg md:px-4-xs;
 }
