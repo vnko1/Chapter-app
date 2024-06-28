@@ -1,15 +1,21 @@
 "use client";
 
-import { getDataFromLS, removeDataFromLS, setDataToLS } from "@/utils";
 import { useEffect, useState } from "react";
+import { getDataFromLS, removeDataFromLS, setDataToLS } from "@/utils";
 
-export const useThemeToggler = () => {
+export const useThemeToggler = (enableTheme = true) => {
   const [darkTheme, setDarkTheme] = useState(false);
 
   const getCurrentTheme = () =>
     getDataFromLS("theme") === "dark" ||
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+  const toggleTheme = () => {
+    if (darkTheme) removeDataFromLS("theme");
+    else setDataToLS({ theme: "dark" });
+    setDarkTheme(!darkTheme);
+  };
 
   useEffect(() => {
     if (darkTheme) document.documentElement.classList.add("dark");
@@ -19,14 +25,8 @@ export const useThemeToggler = () => {
   useEffect(() => {
     const isDarkTheme = getCurrentTheme();
 
-    setDarkTheme(isDarkTheme);
-  }, []);
-
-  const toggleTheme = () => {
-    if (darkTheme) removeDataFromLS("theme");
-    else setDataToLS({ theme: "dark" });
-    setDarkTheme(!darkTheme);
-  };
+    enableTheme && setDarkTheme(isDarkTheme);
+  }, [enableTheme]);
 
   return { toggleTheme, getCurrentTheme };
 };

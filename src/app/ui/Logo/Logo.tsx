@@ -14,7 +14,7 @@ const Logo: FC = ({
   darkTheme?: boolean;
 }) => {
   const [isDark, setIsDark] = useState(false);
-  const { getCurrentTheme } = useThemeToggler();
+  const { getCurrentTheme } = useThemeToggler(false);
 
   useEffect(() => {
     setIsDark(getCurrentTheme());
