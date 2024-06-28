@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { Button } from "@/components";
+import { Button, SkeletonLoader } from "@/components";
 import { useModal } from "@/hooks";
 import { LinksEnum } from "@/types";
 
@@ -10,6 +10,8 @@ import styles from "./home.module.scss";
 
 export default function HomePage() {
   const modal = useModal();
+
+  return <SkeletonLoader />;
   return (
     <section className={styles["home-section"]}>
       <div className={`container ${styles["container"]}`}>
