@@ -9,7 +9,6 @@ import { Header } from "./ui";
 import styles from "./chapter.module.scss";
 
 function NotFound() {
-  throw new Error();
   return (
     <>
       <Header />
