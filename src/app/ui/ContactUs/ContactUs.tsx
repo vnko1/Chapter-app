@@ -15,33 +15,33 @@ const ContactUs: FC<ContactUsProps> = ({
   return (
     <UIModal classNames={styles["backdrop"]} {...props}>
       <>
-        <h2 className={styles["title"]}>{title}</h2>
+        <h2
+          className={`text-text-primary-light dark:text-text-primary-dark ${styles["title"]}`}
+        >
+          {title}
+        </h2>
         <ul className={styles["links"]}>
-          <li className={styles["links__item"]}>
+          <li>
             <a
               href={OuterLinksEnum.TELEGRAM}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles["links"]}
             >
               <Icon
-                size={40}
-                className={styles["link__icon"]}
+                className={`fill-primary-default-light dark:fill-primary-default-dark ${styles["icon"]}`}
                 icon={IconsEnum.Telegram}
                 removeInlineStyle
               />
             </a>
           </li>
-          <li className={styles["links__item"]}>
+          <li>
             <a
               href={OuterLinksEnum.GMAIL}
               target="_blank"
               rel="noopener noreferrer"
-              className={styles["links"]}
             >
               <Icon
-                size={40}
-                className={styles["link__icon"]}
+                className={`fill-primary-default-light dark:fill-primary-default-dark ${styles["icon"]}`}
                 icon={IconsEnum.Google}
                 removeInlineStyle
               />
