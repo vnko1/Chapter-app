@@ -2,23 +2,31 @@
   @apply pt-[170px] h-screen bg-bg-primary-light md:pt-[194px];
 }
 
+.container {
+  @apply lg:flex justify-start;
+}
+
+.content {
+  @apply relative z-10;
+}
+
 .title {
-  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold text-[#291A04] mb-0-xl md:mb-1-sm md:text-h_xl md:leading-h1_xs md:tracking-[1.144px] md:font-semibold;
+  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold text-[#291A04] mb-0-xl md:mb-1-sm md:text-h_xl md:leading-h1_xs md:tracking-[1.144px] md:font-semibold lg:text-h_xl lg:mb-2-xs;
 }
 
 .text {
-  @apply text-center leading-xl tracking-[0.176px] text-[#291A04] text-base font-medium mb-1-lg md:text-xl md:leading-h_base md:tracking-[0.528px] md:mb-2-xs;
+  @apply text-center leading-xl tracking-[0.176px] text-[#291A04] text-base font-medium mb-1-lg md:text-xl md:leading-h_base md:tracking-[0.528px] md:mb-2-xs lg:text-h_xs lg:leading-h_lg lg:tracking-[0.704px] lg:mb-4-xs;
 }
 
 .buttons {
-  @apply w-full flex flex-col gap-0-xl mb-0-xl md:mb-1-sm md:flex-row md:gap-2-xs;
+  @apply w-full flex flex-col gap-0-xl mb-0-xl md:mb-1-sm md:flex-row md:gap-2-xs justify-center lg:mb-2-xs;
 
   &__mob {
     @apply md:hidden;
   }
 
   &__tab {
-    @apply hidden md:inline-flex;
+    @apply hidden md:inline-flex max-w-[320px];
   }
 }
 
@@ -30,7 +38,7 @@
 }
 
 .hero {
-  @apply absolute bottom-0 right-0 w-[316px] h-[340px] md:w-[590px] md:h-[636px];
+  @apply absolute bottom-0 right-0 w-[316px] h-[340px] md:w-[590px] md:h-[636px] lg:w-[890px] lg:h-[968px];
   &-bg {
     @apply h-full rounded-[332px] bg-[#F29B1866] blur-[106px] md:rounded-[623px];
   }
