@@ -2,11 +2,11 @@
 import Image from "next/image";
 
 import { Button } from "@/components";
-
-import { LinksEnum } from "@/types";
-import styles from "./home.module.scss";
-import { ContactUs } from "../ui";
 import { useModal } from "@/hooks";
+import { LinksEnum } from "@/types";
+
+import { ContactUs } from "../ui";
+import styles from "./home.module.scss";
 
 export default function HomePage() {
   const modal = useModal();

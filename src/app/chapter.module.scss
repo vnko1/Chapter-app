@@ -1,0 +1,11 @@
+.section {
+  @apply w-screen h-screen bg-no-repeat bg-center bg-cover bg-back;
+}
+
+.container {
+  @apply flex flex-col h-full justify-center items-center;
+}
+
+.thumb {
+  @apply absolute w-full h-full max-h-[778px];
+}

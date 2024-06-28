@@ -12,7 +12,7 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     extend: {
-      backgroundImage: { home: "url('/home-pic.webp')" },
+      backgroundImage: { back: "url('/bg.svg')" },
       screens: {
         sm: "375px",
         md: "744px",
