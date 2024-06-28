@@ -5,6 +5,7 @@ import cn from "classnames";
 import { Icon } from "@/components";
 import { ButtonProps } from "./Button.type";
 import "./Button.scss";
+import Link from "next/link";
 
 const Button: FC<ButtonProps> = ({
   children,
@@ -18,6 +19,7 @@ const Button: FC<ButtonProps> = ({
   iconSize = 32,
   alignIcon,
   classNames,
+  href,
   ...props
 }) => {
   const variantClassNames = cn({
@@ -59,6 +61,13 @@ const Button: FC<ButtonProps> = ({
     classNames
   );
 
+  if (href)
+    return (
+      <Link href={href} className={baseClassNames}>
+        {icon && <Icon icon={icon} size={iconSize} />}
+        {children}
+      </Link>
+    );
   return (
     <button {...props} className={baseClassNames} type={type}>
       {icon && <Icon icon={icon} size={iconSize} />}

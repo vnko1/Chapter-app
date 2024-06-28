@@ -21,4 +21,5 @@ export type ButtonProps = {
   isLoading?: false;
   icon?: IconsEnum;
   iconSize?: number;
+  href?: string;
 } & Partial<ButtonHTMLAttributes<HTMLButtonElement>>;

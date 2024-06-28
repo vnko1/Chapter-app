@@ -1,0 +1,29 @@
+.home-section {
+  @apply pt-[170px] h-screen bg-bg-primary-light;
+}
+
+.title {
+  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold text-[#291A04] mb-0-xl;
+}
+
+.text {
+  @apply text-center leading-xl tracking-[0.176px] text-[#291A04] text-base font-medium mb-1-lg;
+}
+
+.buttons {
+  @apply w-full flex flex-col gap-0-xl mb-0-xl;
+}
+
+.contact {
+  @apply text-center text-sm leading-lg tracking-[0.154px];
+  & > button {
+    @apply text-[#1540D9];
+  }
+}
+
+.hero {
+  @apply absolute bottom-0 right-0 w-[316px] h-[340px];
+  &-bg {
+    @apply h-full rounded-[332px] bg-[#F29B1866] blur-[106px];
+  }
+}
