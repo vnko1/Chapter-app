@@ -1,0 +1,13 @@
+.title {
+  @apply text-center md:text-[38px] lg:text-[50px];
+}
+
+.links {
+  @apply flex flex-wrap gap-4-xs justify-center;
+}
+
+.link {
+  &__icon {
+    @apply fill-primary-default-light;
+  }
+}

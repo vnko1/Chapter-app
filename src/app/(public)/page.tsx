@@ -5,8 +5,11 @@ import { Button } from "@/components";
 
 import { LinksEnum } from "@/types";
 import styles from "./home.module.scss";
+import { ContactUs } from "../ui";
+import { useModal } from "@/hooks";
 
 export default function HomePage() {
+  const modal = useModal();
   return (
     <section className={styles["home-section"]}>
       <div className={`container ${styles["container"]}`}>
@@ -49,10 +52,10 @@ export default function HomePage() {
             </Button>
           </div>
           <p className={styles["contact"]}>
-            Having problems?{" "}
+            Having problems?
             <button
               onClick={() => {
-                console.log(1);
+                modal.setActive(true);
               }}
             >
               Contact us
@@ -61,9 +64,16 @@ export default function HomePage() {
         </div>
         <div className={styles["hero"]}>
           <div className={styles["hero-bg"]}></div>
-          <Image src="/home-pic.webp" fill alt="hero image" priority sizes="" />
+          <Image
+            src="/home-pic.webp"
+            fill
+            alt="hero image"
+            priority
+            sizes="100wv"
+          />
         </div>
       </div>
+      <ContactUs {...modal} />
     </section>
   );
 }
