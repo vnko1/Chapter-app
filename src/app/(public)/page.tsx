@@ -52,7 +52,7 @@ export default function HomePage() {
             </Button>
           </div>
           <p className={styles["contact"]}>
-            Having problems?
+            Having problems?{" "}
             <button
               onClick={() => {
                 modal.setActive(true);
