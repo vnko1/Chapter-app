@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { Button, SkeletonLoader } from "@/components";
+import { Button } from "@/components";
 import { useModal } from "@/hooks";
 import { LinksEnum } from "@/types";
 
@@ -11,7 +11,6 @@ import styles from "./home.module.scss";
 export default function HomePage() {
   const modal = useModal();
 
-  return <SkeletonLoader />;
   return (
     <section className={styles["home-section"]}>
       <div className={`container ${styles["container"]}`}>
@@ -23,7 +22,7 @@ export default function HomePage() {
               fullWidth
               size="small"
               href={LinksEnum.SIGN_UP}
-              classNames={styles["buttons__mob"]}
+              classNames={`${styles["buttons__mob"]} ${styles["btn"]}`}
             >
               Sign up
             </Button>
@@ -32,15 +31,14 @@ export default function HomePage() {
               size="small"
               variant="outlined"
               href={LinksEnum.LOG_IN}
-              classNames={styles["buttons__mob"]}
+              classNames={`${styles["buttons__mob"]} ${styles["btn"]}`}
             >
               Log in
             </Button>
             <Button
               fullWidth
-              size="small"
               href={LinksEnum.SIGN_UP}
-              classNames={styles["buttons__tab"]}
+              classNames={`${styles["buttons__tab"]} ${styles["btn"]}`}
             >
               Sign up
             </Button>
@@ -48,7 +46,7 @@ export default function HomePage() {
               fullWidth
               variant="outlined"
               href={LinksEnum.LOG_IN}
-              classNames={styles["buttons__tab"]}
+              classNames={`${styles["buttons__tab"]} ${styles["btn"]}`}
             >
               Log in
             </Button>
