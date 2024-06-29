@@ -1,0 +1,11 @@
+.form {
+  @apply w-full flex flex-col items-center mb-0-xl;
+
+  &__field {
+    @apply mb-2-xs lg:mb-4-xs;
+  }
+
+  &__button {
+    @apply md:max-w-[208px] lg:max-w-[278px];
+  }
+}
