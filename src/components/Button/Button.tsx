@@ -19,6 +19,7 @@ const Button: FC<ButtonProps> = ({
   iconSize = 32,
   alignIcon,
   classNames,
+  iconClassNames,
   href,
   ...props
 }) => {
@@ -70,7 +71,7 @@ const Button: FC<ButtonProps> = ({
     );
   return (
     <button {...props} className={baseClassNames} type={type}>
-      {icon && <Icon icon={icon} size={iconSize} />}
+      {icon && <Icon icon={icon} size={iconSize} className={iconClassNames} />}
       {children}
     </button>
   );

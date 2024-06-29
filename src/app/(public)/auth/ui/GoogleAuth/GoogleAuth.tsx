@@ -1,30 +1,21 @@
 import React, { FC } from "react";
 import { Button } from "@/components";
 import { IconsEnum, OuterLinksEnum } from "@/types";
-import { GoogleAuthProps } from "./GoogleAuth.type";
+
 import styles from "./GoogleAuth.module.scss";
 
-const GoogleAuth: FC<GoogleAuthProps> = ({
-  text = "Enter with google",
-  iconSize = 24,
-  buttonSize = "small",
-  buttonColor = "secondary",
-  buttonVariant = "outlined",
-  classNames,
-}) => {
+const GoogleAuth: FC = () => {
   return (
     <Button
-      classNames={`${styles["oauth-btn"]} ${classNames}`}
+      classNames={styles["google-btn"]}
       fullWidth
-      variant={buttonVariant}
-      color={buttonColor}
-      size={buttonSize}
-      iconSize={iconSize}
+      variant="outlined"
+      iconSize={24}
       aria-label="Google oAuth button"
       icon={IconsEnum.Google}
       href={OuterLinksEnum.GOOGLE_CB}
     >
-      <span>{text}</span>
+      Enter with google
     </Button>
   );
 };

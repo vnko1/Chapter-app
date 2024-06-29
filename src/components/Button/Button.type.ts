@@ -18,8 +18,9 @@ export type ButtonProps = {
   alignIcon?: AlignIconType;
   classNames?: string;
   fullWidth?: boolean;
-  isLoading?: false;
+  isLoading?: boolean;
   icon?: IconsEnum;
   iconSize?: number;
   href?: string;
+  iconClassNames?: string;
 } & Partial<ButtonHTMLAttributes<HTMLButtonElement>>;
