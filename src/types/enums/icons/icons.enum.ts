@@ -13,7 +13,7 @@ export enum IconsEnum {
   Place = "place",
   Ok = "ok",
   Notification = "notification",
-  Non_eye = "non_eye",
+  Non_eye = "non-eye",
   Mic = "mic",
   Message = "message",
   Menu = "menu",

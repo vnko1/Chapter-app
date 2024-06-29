@@ -21,7 +21,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
   strengthMessage = "Password must be at least 8 characters long, include only Latin letters, one uppercase letter, one number, space symbol mustn't be included",
   helperLink,
   helperText,
-  size,
+  size = "normal",
   onChange,
   iconSize = 24,
   ...props
@@ -83,9 +83,10 @@ const PasswordField: FC<PasswordFieldProps> = ({
             ref={field.ref}
             autoComplete="off"
           />
+
           {values?.length ? (
             <Icon
-              icon={isVisiblePassword ? IconsEnum.Eye : IconsEnum.Non_eye}
+              icon={!isVisiblePassword ? IconsEnum.Eye : IconsEnum.Non_eye}
               size={iconSize}
               color="#8E8E93"
               onClick={() => setIsVisiblePassword(!isVisiblePassword)}
