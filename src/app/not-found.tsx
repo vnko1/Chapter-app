@@ -21,6 +21,7 @@ function NotFound() {
                 alt="not found image"
                 fill
                 style={{ objectFit: "contain" }}
+                priority
               />
             </div>
             <div className={styles["content"]}>

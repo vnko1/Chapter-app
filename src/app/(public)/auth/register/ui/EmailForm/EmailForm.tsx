@@ -7,11 +7,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LinksEnum } from "@/types";
 import { CustomError } from "@/services";
 import { Button, TextField } from "@/components";
+import { emailCreate } from "@/lib/actions";
 
 import { ErrorApi } from "@/app/ui";
+import styles from "../Form.module.scss";
 import { EmailFormProps } from "./EmailForm.type";
 import { EmailFormValue, emailSchema } from "./validationSchema";
-import styles from "./EmailForm.module.scss";
 
 const EmailForm: FC<EmailFormProps> = ({ setUserId, setEmail }) => {
   const methods = useForm<EmailFormValue>({
@@ -21,18 +22,17 @@ const EmailForm: FC<EmailFormProps> = ({ setUserId, setEmail }) => {
     mode: "onChange",
     resolver: zodResolver(emailSchema),
   });
-  const { push } = useRouter();
   const { formState, handleSubmit, setError, clearErrors } = methods;
   const { isSubmitting, isDirty, isValid } = formState;
+  const { push } = useRouter();
 
-  const onHandleSubmit: SubmitHandler<EmailFormValue> = async (formValues) => {
+  const onHandleSubmit: SubmitHandler<EmailFormValue> = async ({ email }) => {
     try {
-      console.log(
-        "🚀 ~ constonHandleSubmit:SubmitHandler<EmailFormValue>= ~ formValues:",
-        formValues
-      );
-      setEmail(formValues.email);
-      setUserId("123");
+      const res = await emailCreate(email);
+      if (res && res.isError) throw new CustomError(res.error);
+
+      setEmail(email);
+      setUserId(res.data.userId);
     } catch (error) {
       if (error instanceof CustomError) {
         const [message, serviceMessage] = error.errorMessage.split("; ");
@@ -42,10 +42,10 @@ const EmailForm: FC<EmailFormProps> = ({ setUserId, setEmail }) => {
             type: "custom",
           });
           if (serviceMessage.endsWith("unconfirmed")) {
-            setUserId(error.data?.userId ?? null);
             return setTimeout(() => {
               clearErrors("root");
-              setEmail(formValues.email);
+              setEmail(email);
+              setUserId(error.data?.userId ?? null);
             }, 2000);
           }
           if (serviceMessage.endsWith("confirmed"))

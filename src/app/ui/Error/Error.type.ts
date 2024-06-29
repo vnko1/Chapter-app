@@ -1,1 +1,1 @@
-export type ErrorProps = { error: string | undefined };
+export type ErrorProps = { error: string | undefined | null };

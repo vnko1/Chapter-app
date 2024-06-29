@@ -1,5 +1,5 @@
 .block-auth {
-  @apply relative w-screen h-screen bg-no-repeat bg-center bg-cover bg-back pt-[164px] px-1-lg md:pt-[294px] lg:pt-[216px];
+  @apply flex flex-col justify-between items-center w-screen h-screen bg-no-repeat bg-center bg-cover bg-back pt-[164px] px-1-lg md:pt-[224px] lg:pt-[216px] overflow-hidden;
 
   &__container {
     @apply flex flex-col items-center w-full mx-auto rounded-[12px] max-w-[344px] px-1-lg py-4-xs md:max-w-[436px] md:py-6-xs md:px-4-xs lg:max-w-[574px];
@@ -11,5 +11,5 @@
 }
 
 .term-link {
-  @apply absolute bottom-1 left-1/2 -translate-x-1/2 text-center text-xxs leading-sm font-normal md:max-w-[436px] lg:max-w-[574px];
+  @apply text-center text-xxs leading-sm font-normal md:max-w-[436px] lg:max-w-[574px] pb-1;
 }

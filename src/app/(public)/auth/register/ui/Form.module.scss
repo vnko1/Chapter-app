@@ -1,0 +1,23 @@
+.user-data {
+  @apply w-full md:max-w-[276px] lg:max-w-[494px] mb-2-xs;
+}
+
+.email {
+  @apply flex items-center justify-between w-full mb-0-xl text-base font-medium leading-xl tracking-[0.176px];
+}
+
+.info {
+  @apply text-center text-xxs font-normal leading-sm;
+}
+
+.form {
+  @apply w-full flex flex-col items-center mb-0-xl;
+
+  &__field {
+    @apply mb-2-xs md:mb-4-xs;
+  }
+
+  &__button {
+    @apply md:max-w-[208px] lg:max-w-[278px];
+  }
+}

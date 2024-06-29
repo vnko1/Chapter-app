@@ -1,15 +1,21 @@
 "use client";
 import React, { useState } from "react";
-import { AuthLink, BlockAuth, Delimiter, GoogleAuth } from "../ui";
 import { LinksEnum } from "@/types";
-import { EmailForm } from "./ui";
+
+import { AuthLink, BlockAuth, Delimiter, GoogleAuth } from "../ui";
+import { EmailForm, OTPForm } from "./ui";
 
 function RegisterPage() {
   const [email, setEmail] = useState<string | null>(null);
   const [userId, setUserId] = useState("");
   return (
     <BlockAuth heading="Sign up" authType="Create account">
-      <EmailForm setEmail={setEmail} setUserId={setUserId} />
+      {email && userId ? (
+        <OTPForm email={email} userId={userId} />
+      ) : (
+        <EmailForm setEmail={setEmail} setUserId={setUserId} />
+      )}
+
       {email && userId ? null : (
         <>
           <Delimiter />

@@ -1,0 +1,23 @@
+.resent {
+  @apply mb-2-xs md:mb-4-xs text-center;
+
+  &__message {
+    @apply text-sm font-medium leading-lg tracking-[0.154px] mb-0-sm;
+  }
+
+  &__label {
+    @apply flex justify-center gap-0-sm;
+
+    &-text {
+      @apply text-sm font-medium leading-lg tracking-[0.154px];
+    }
+  }
+
+  &__button {
+    @apply inline text-sm font-medium leading-lg tracking-[0.154px] transition-all duration-150;
+
+    &::disabled {
+      @apply animate-pulse pointer-events-none;
+    }
+  }
+}
