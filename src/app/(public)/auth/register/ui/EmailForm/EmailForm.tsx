@@ -9,7 +9,7 @@ import { CustomError } from "@/services";
 import { Button, TextField } from "@/components";
 import { emailCreate } from "@/lib/actions";
 
-import { ErrorApi } from "@/app/ui";
+import { ErrorMessage } from "@/app/ui";
 import styles from "../Form.module.scss";
 import { EmailFormProps } from "./EmailForm.type";
 import { EmailFormValue, emailSchema } from "./validationSchema";
@@ -88,7 +88,7 @@ const EmailForm: FC<EmailFormProps> = ({ setUserId, setEmail }) => {
         >
           Create new account
         </Button>
-        <ErrorApi error={formState.errors.root?.serverError.message} />
+        <ErrorMessage error={formState.errors.root?.serverError.message} />
       </form>
     </FormProvider>
   );

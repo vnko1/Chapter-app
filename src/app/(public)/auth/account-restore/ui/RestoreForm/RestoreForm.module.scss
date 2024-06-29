@@ -1,0 +1,27 @@
+.user-data {
+  @apply w-full mb-2-xs md:mb-4-xs;
+}
+
+.title {
+  @apply flex items-center justify-between w-full mb-0-xl text-center text-xl font-bold leading-h_xs tracking-[0.528px] md:text-h_base md:font-semibold md:leading-h_lg md:tracking-[0.792px] lg:text-h_xl lg:leading-h1_xs lg:tracking-[1.144px];
+}
+
+.info {
+  @apply text-center text-sm font-normal leading-lg tracking-[0.154px] md:text-base md:leading-xl md:tracking-[0.176px];
+}
+
+.form {
+  @apply w-full flex flex-col items-center mb-0-xl;
+
+  &__field {
+    @apply mb-0-md;
+  }
+
+  &__resent-btn {
+    @apply ml-auto mb-2-xs md:mb-4-xs text-xxs font-normal leading-sm md:text-xs md:leading-base md:tracking-[0.132px];
+  }
+
+  &__button {
+    @apply md:max-w-[208px] lg:max-w-[278px];
+  }
+}

@@ -8,7 +8,7 @@ const Header: FC = () => {
   return (
     <header className={styles["header"]}>
       <div className={styles["header__container"]}>
-        <Logo />
+        <Logo darkTheme />
       </div>
     </header>
   );

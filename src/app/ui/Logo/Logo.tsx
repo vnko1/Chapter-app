@@ -3,18 +3,14 @@ import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { LinksEnum } from "@/types";
 import { useThemeToggler } from "@/hooks";
+import { LinksEnum } from "@/types";
+import { LogoProps } from "./Logo.type";
 
-const Logo: FC = ({
-  classNames,
-  darkTheme = false,
-}: {
-  classNames?: string;
-  darkTheme?: boolean;
-}) => {
+const Logo: FC<LogoProps> = ({ classNames, darkTheme = false }) => {
   const [isDark, setIsDark] = useState(false);
-  const { getCurrentTheme } = useThemeToggler(false);
+
+  const { getCurrentTheme } = useThemeToggler();
 
   useEffect(() => {
     setIsDark(getCurrentTheme());

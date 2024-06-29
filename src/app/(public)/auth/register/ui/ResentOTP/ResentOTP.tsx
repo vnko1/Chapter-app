@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { CustomError } from "@/services";
 import { resentOtp } from "@/lib/actions";
 
-import { ErrorApi } from "@/app/ui";
+import { ErrorMessage } from "@/app/ui";
 import { ResentOTPProps } from "./ResentOTP.type";
 import styles from "./ResentOtp.module.scss";
 
@@ -43,7 +43,7 @@ const ResentOTP: FC<ResentOTPProps> = ({ email }) => {
           Click here.
         </button>
       </div>
-      <ErrorApi error={error} />
+      <ErrorMessage error={error} />
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { CustomError } from "@/services";
 import { Button, Icon, TextField } from "@/components";
 import { emailConfirm } from "@/lib/actions";
 
-import { ErrorApi } from "@/app/ui";
+import { ErrorMessage } from "@/app/ui";
 import { ResentOTP } from "..";
 import styles from "../Form.module.scss";
 import { OTPFormValue, OTPSchema } from "./validationSchema";
@@ -90,7 +90,7 @@ const OTPForm: FC<OTPFormProps> = ({ email, userId }) => {
           >
             Create new account
           </Button>
-          <ErrorApi error={formState.errors.root?.serverError.message} />
+          <ErrorMessage error={formState.errors.root?.serverError.message} />
         </form>
       </FormProvider>
     </>
