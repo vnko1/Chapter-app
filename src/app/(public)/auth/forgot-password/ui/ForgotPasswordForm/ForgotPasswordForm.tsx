@@ -26,10 +26,9 @@ const ForgotPasswordForm: FC<ForgotPasswordFormProps> = ({ setSubmitted }) => {
   } = methods;
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
-    console.log("🚀 ~ constonSubmit:SubmitHandler<FormValues>= ~ data:", data);
     try {
-      // const res = await resetPassword(data.email);
-      // if (res && res.isError) throw new CustomError(res.error);
+      const res = await resetPassword(data.email);
+      if (res?.isError) throw new CustomError(res.error);
       setSubmitted(true);
     } catch (error) {
       if (error instanceof CustomError) {
