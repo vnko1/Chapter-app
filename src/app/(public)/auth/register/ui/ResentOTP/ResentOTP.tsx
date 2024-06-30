@@ -6,7 +6,7 @@ import { resentOtp } from "@/lib/actions";
 
 import { ErrorMessage } from "@/app/ui";
 import { ResentOTPProps } from "./ResentOTP.type";
-import styles from "./ResentOtp.module.scss";
+import styles from "./ResentOTP.module.scss";
 
 const ResentOTP: FC<ResentOTPProps> = ({ email }) => {
   const [error, setError] = useState<string | null>(null);
