@@ -94,11 +94,10 @@ const LoginForm: FC<LoginFormProps> = ({ access_token, refresh_token }) => {
         <Button
           type="submit"
           fullWidth
-          classNames={styles["button"]}
+          classNames={styles["form__button"]}
           disabled={isSubmitting || !isValid || !isDirty}
           isLoading={isSubmitting}
           aria-label="Submit form button"
-          className={styles["form__button"]}
         >
           Log in
         </Button>
