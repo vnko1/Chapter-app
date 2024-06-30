@@ -3,11 +3,13 @@ import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { LinksEnum } from "@/types";
 import { useThemeToggler } from "@/hooks";
+import { LinksEnum } from "@/types";
+import { LogoProps } from "./Logo.type";
 
-const Logo: FC = ({ classNames }: { classNames?: string }) => {
+const Logo: FC<LogoProps> = ({ classNames, darkTheme = false }) => {
   const [isDark, setIsDark] = useState(false);
+
   const { getCurrentTheme } = useThemeToggler();
 
   useEffect(() => {
@@ -20,7 +22,7 @@ const Logo: FC = ({ classNames }: { classNames?: string }) => {
         <Image
           width={276}
           height={74}
-          src={isDark ? "/logo-dark.webp" : "/logo-light.webp"}
+          src={darkTheme && isDark ? "/logo-dark.webp" : "/logo-light.webp"}
           alt="logo"
           priority
         />

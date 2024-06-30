@@ -1,0 +1,39 @@
+.section {
+  @apply w-screen h-screen bg-no-repeat bg-center bg-cover bg-back;
+}
+
+.container {
+  @apply flex flex-col h-full justify-center items-center;
+}
+
+.thumb {
+  @apply absolute w-full h-full top-0 max-h-[678px];
+}
+
+.content {
+  @apply absolute top-2/3 px-1-lg flex flex-col items-center;
+}
+
+.title {
+  @apply text-center font-bold text-xl leading-h_xs tracking-[0.528px] mb-0-xl md:text-h_xl md:font-semibold md:leading-h1_xs md:tracking-[1.144px] md:mb-1-sm lg:text-h_xl lg:leading-h1_xs lg:tracking-[1.144px] lg:mb-2-xs;
+}
+
+.text {
+  @apply text-center text-base font-medium leading-xl tracking-[0.176px] mb-1-sm md:text-xl md:leading-h_base md:tracking-[0.528px] md:mb-2-xs lg:text-xl lg:leading-h_base lg:tracking-[0.528px] lg:mb-4-xs;
+}
+
+.button {
+  @apply md:max-w-[276px];
+
+  &.button--mob {
+    @apply md:hidden;
+  }
+
+  &.button--tab {
+    @apply hidden md:inline-flex lg:hidden;
+  }
+
+  &.button--desc {
+    @apply hidden lg:inline-flex;
+  }
+}

@@ -1,0 +1,23 @@
+.restore-msg {
+  @apply w-full text-center;
+  & > h1 {
+    @apply mb-0-xl text-xl font-bold leading-h_xs tracking-[0.528px] md:mb-1-sm md:text-h_base md:font-semibold md:leading-h_xl md:tracking-[0.792px] lg:mb-2-xs lg:text-h_lg lg:leading-h_xxl lg:tracking-[0.88px];
+  }
+  & > p {
+    @apply mb-1-sm text-base font-medium leading-xl tracking-[0.176px] md:mb-2-xs md:text-lg md:font-semibold md:leading-h_xs md:tracking-[0.22px] lg:mb-4-xs;
+  }
+}
+
+.restore-btn {
+  &.btn-mob {
+    @apply md:hidden;
+  }
+
+  &.btn-tab {
+    @apply hidden md:inline-flex max-w-[208px] lg:hidden;
+  }
+
+  &.btn-desc {
+    @apply hidden lg:inline-flex max-w-[276px];
+  }
+}

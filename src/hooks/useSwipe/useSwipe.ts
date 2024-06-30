@@ -6,8 +6,8 @@ import { useGetScreenSize } from "@/hooks";
 import { UseSwipeProps } from "./useSwipe.type";
 
 export const useSwipe = ({
-  lSwipe,
-  rSwipe,
+  lSideSwipe,
+  rSideSwipe,
   nodeRef,
   enableSwipe = false,
   axis = "clientX",
@@ -28,11 +28,11 @@ export const useSwipe = ({
       const touchEnd = e.changedTouches[0][axis];
 
       if (touchStart - touchEnd > touchDistinction) {
-        lSwipe && lSwipe();
+        lSideSwipe && lSideSwipe();
       }
 
       if (touchStart - touchEnd < -touchDistinction) {
-        rSwipe && rSwipe();
+        rSideSwipe && rSideSwipe();
       }
     };
 
@@ -63,7 +63,7 @@ export const useSwipe = ({
     screenSize,
     touchDistinction,
     touchStart,
-    rSwipe,
-    lSwipe,
+    rSideSwipe,
+    lSideSwipe,
   ]);
 };

@@ -16,9 +16,10 @@ const Modal: FC<ModalProps> = ({
   visible,
   classNames,
   activeClassNames,
+  side,
   ...props
 }) => {
-  useSwipe({ lSwipe: close, ...props });
+  useSwipe({ [side]: close, ...props });
 
   useEffect(() => {
     if (active) {

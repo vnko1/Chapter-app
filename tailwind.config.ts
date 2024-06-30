@@ -12,6 +12,7 @@ const config: Config = {
   darkMode: "selector",
   theme: {
     extend: {
+      backgroundImage: { back: "url('/bg.svg')" },
       screens: {
         sm: "375px",
         md: "744px",
