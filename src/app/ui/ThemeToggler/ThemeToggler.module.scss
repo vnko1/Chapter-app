@@ -1,0 +1,11 @@
+.button {
+  @apply ml-auto flex items-center gap-0-xl text-base font-normal leading-xl tracking-[0.176px];
+}
+
+.dark-icon {
+  @apply stroke-primary-default-dark;
+}
+
+.light-icon {
+  @apply stroke-primary-default-light;
+}
