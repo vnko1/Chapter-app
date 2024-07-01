@@ -23,7 +23,6 @@ const config: Config = {
         md: "8px",
         lg: "16px",
       },
-      boxShadow: {},
 
       spacing: {
         "0-sm": "2px",

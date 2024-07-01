@@ -1,1 +1,1 @@
-export type LogoProps = { classNames?: string; darkTheme?: boolean };
+export type LogoProps = { classNames?: string };

@@ -3,6 +3,84 @@
   "icons": [
     {
       "icon": {
+        "paths": [
+          "M364.817 704h294.366M320.034 640c-78.072-59-128-151.67-128-256 0-176.731 143.269-320 320-320s320 143.269 320 320c0 104.33-49.928 197-127.195 255.417l-0.805 0.583c-41.018 40.612-66.416 96.934-66.416 159.189 0 11.578 0.878 22.951 2.572 34.055l-0.156-1.244c0 70.692-57.308 128-128 128s-128-57.308-128-128v0c1.538-9.861 2.416-21.233 2.416-32.811 0-62.255-25.398-118.577-66.398-159.171l-0.018-0.018z"
+        ],
+        "attrs": [
+          {
+            "fill": "none",
+            "strokeLinejoin": "round",
+            "strokeLinecap": "round",
+            "strokeMiterlimit": "4",
+            "strokeWidth": 68.26666666666667
+          }
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": ["bulb"],
+        "colorPermutations": {}
+      },
+      "attrs": [
+        {
+          "fill": "none",
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round",
+          "strokeMiterlimit": "4",
+          "strokeWidth": 68.26666666666667
+        }
+      ],
+      "properties": {
+        "order": 4,
+        "id": 1,
+        "name": "bulb",
+        "prevSize": 32
+      },
+      "setIdx": 0,
+      "setId": 14,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M64 512h32.017M512 64v32.017M928.017 512h31.983M193.434 193.434l30.583 30.583M830.566 193.434l-34.816 34.816M397.517 760.934h228.966M362.667 711.134c-60.709-45.885-99.533-117.95-99.533-199.083 0-137.445 111.421-248.866 248.866-248.866s248.866 111.421 248.866 248.866c0 81.132-38.824 153.197-98.907 198.629l-0.626 0.454c-31.897 31.587-51.647 75.39-51.647 123.806 0 9.008 0.684 17.855 2.002 26.495l-0.121-0.968c0 54.989-44.578 99.567-99.567 99.567s-99.567-44.578-99.567-99.567v0c1.198-7.675 1.882-16.527 1.882-25.539 0-48.413-19.751-92.212-51.635-123.78l-0.014-0.014z"
+        ],
+        "attrs": [
+          {
+            "fill": "none",
+            "strokeLinejoin": "round",
+            "strokeLinecap": "round",
+            "strokeMiterlimit": "4",
+            "strokeWidth": 68.26666666666667
+          }
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": ["light-bulb"],
+        "colorPermutations": {}
+      },
+      "attrs": [
+        {
+          "fill": "none",
+          "strokeLinejoin": "round",
+          "strokeLinecap": "round",
+          "strokeMiterlimit": "4",
+          "strokeWidth": 68.26666666666667
+        }
+      ],
+      "properties": {
+        "order": 5,
+        "id": 0,
+        "name": "light-bulb",
+        "prevSize": 32
+      },
+      "setIdx": 0,
+      "setId": 14,
+      "iconIdx": 1
+    },
+    {
+      "icon": {
         "paths": ["M189.168 384.656l329.562 298.669 353.104-298.669"],
         "attrs": [
           {

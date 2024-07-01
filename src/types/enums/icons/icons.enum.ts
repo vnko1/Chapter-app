@@ -37,4 +37,6 @@ export enum IconsEnum {
   Arrow_down = "arrow_down",
   Add_rect = "add_rect",
   Add = "add",
+  Bulb = "bulb",
+  Light_bulb = "light-bulb",
 }
