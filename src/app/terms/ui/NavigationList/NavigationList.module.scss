@@ -1,0 +1,60 @@
+.navigation-list {
+  &__item {
+    &:not(:last-child) {
+      @apply mb-0-md lg:mb-1;
+    }
+
+    &.contact-us {
+      &::after {
+        content: "";
+        @apply block w-full h-[1px]  mt-0-md md:mt-2-xs;
+      }
+    }
+  }
+
+  &__link {
+    @apply relative w-full inline-flex items-center py-1-lg px-2-md text-black font-semibold text-base tracking-[0.36px] rounded-[8px] transition duration-300 ease-in-out active:bg-primary-default-light active:text-text-primary-light lg:hover:bg-primary-hover-light lg:hover:text-text-hover-light lg:text-[20px] lg:p-4;
+  }
+
+  &__link.unread-message {
+    &::before {
+      content: "";
+      @apply absolute w-[8px] h-[8px]  top-1/2 -translate-y-1/2 left-[10px] rounded-[50%] bg-primary-default-light transition duration-300 ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        @apply bg-bg-primary-light;
+      }
+    }
+  }
+
+  &__link.current-page {
+    @apply bg-bg-primary-light text-text-primary-light;
+
+    &::before {
+      @apply bg-bg-primary-light;
+    }
+  }
+
+  &__link.current-page &__link-icon path {
+    @apply fill-text-primary-light;
+  }
+
+  &__link-icon {
+    @apply mr-4 w-[28px] lg:mr-[24px] lg:w-[32px];
+  }
+
+  &__custom-icon {
+    @apply transition-all duration-300 ease-in-out stroke-text-primary-light;
+  }
+  &__button {
+    @apply bg-transparent;
+    &:hover .navigation-list__custom-icon,
+    &:focus .navigation-list__custom-icon,
+    &:active .navigation-list__custom-icon {
+      @apply stroke-text-primary-light;
+    }
+  }
+}
