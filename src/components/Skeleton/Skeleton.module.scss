@@ -1,3 +1,19 @@
-.loader {
-  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+.box {
+  @apply private-container md:max-w-[664px] lg:max-w-[962px] p-2-xs;
+}
+
+.wrapper {
+  @apply flex gap-0-xl items-center mb-1-sm md:mb-2-xs  lg:mb-4-xs;
+}
+
+.container {
+  @apply mb-1-sm md:mb-2-xs lg:mb-4-xs;
+}
+
+.btn-wrapper {
+  @apply flex items-center gap-2-xs;
+
+  & > div {
+    @apply flex items-center gap-1-xs;
+  }
 }
