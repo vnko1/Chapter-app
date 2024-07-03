@@ -1,10 +1,11 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 
-import { Loader, PostForm } from "@/components";
+// import { Loader, PostForm } from "@/components";
 import { useModal } from "@/hooks";
 import { IUser } from "@/types";
 import { getMe } from "@/lib/actions";
+import { SkeletonLoader } from "@/components";
 
 import { ProfileContext } from "./hook";
 import { ProfileProviderProps } from "./ProfileProvider.type";
@@ -20,7 +21,7 @@ const ProfileProvider: FC<ProfileProviderProps> = ({ children }) => {
     });
   }, []);
 
-  if (!user) return <Loader active />;
+  if (!user) return <SkeletonLoader />;
 
   return (
     <ProfileContext.Provider
@@ -28,7 +29,7 @@ const ProfileProvider: FC<ProfileProviderProps> = ({ children }) => {
     >
       {children}
 
-      <PostForm {...postModal} user={user} enableSwipe />
+      {/* <PostForm {...postModal} user={user} enableSwipe /> */}
     </ProfileContext.Provider>
   );
 };

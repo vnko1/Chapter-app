@@ -1,4 +1,4 @@
-import { IconEnum } from "@/types";
+import { IconsEnum } from "@/types";
 
 export type NavigationList = {
   items: NavigationLinkProps[];
@@ -7,6 +7,6 @@ export type NavigationList = {
 export type NavigationLinkProps = {
   id: string;
   path: string;
-  icon?: IconEnum;
+  icon?: IconsEnum;
   name: string;
 };
