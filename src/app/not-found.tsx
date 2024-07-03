@@ -14,7 +14,7 @@ function NotFound() {
       <Header />
       <main>
         <section className={styles["section"]}>
-          <div className={`container ${styles["container"]}`}>
+          <div className={`public-container ${styles["container"]}`}>
             <div className={styles["thumb"]}>
               <Image
                 src="/404.webp"
