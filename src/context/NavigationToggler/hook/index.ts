@@ -5,7 +5,7 @@ import {
   NavigationTogglerState,
 } from "../NavigationTogglerProvider.type";
 
-const initialNavigationTogglerState: NavigationTogglerState = {
+const initialNavigationTogglerState: Partial<NavigationTogglerState> = {
   isActiveMenu: false,
 };
 
