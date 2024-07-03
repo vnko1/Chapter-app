@@ -7,9 +7,12 @@ import { useThemeToggler } from "@/hooks";
 import { LinksEnum } from "@/types";
 
 import { LogoProps } from "./Logo.type";
+import { usePathname } from "next/navigation";
 
-const Logo: FC<LogoProps> = ({ classNames }) => {
+const Logo: FC<LogoProps> = ({ classNames, hideLogo }) => {
   const { getCurrentTheme } = useThemeToggler();
+  const pathName = usePathname();
+  if (hideLogo && pathName === "/") return null;
 
   return (
     <div className={`max-w-[120px] ${classNames}`}>
