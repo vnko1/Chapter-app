@@ -6,7 +6,6 @@ import { IconsEnum } from "@/types";
 import { Icon, Button } from "@/components";
 
 import { MenuTogglerProps } from "./MenuToggler.type";
-import styles from "./MenuToggler.module.scss";
 
 const MenuToggler: FC<MenuTogglerProps> = ({
   isActive = false,
@@ -27,15 +26,16 @@ const MenuToggler: FC<MenuTogglerProps> = ({
 
   return (
     <Button
-      classNames={`${styles["menu-toggler"]} ${classNames}`}
+      classNames={classNames}
       onClick={handleClick}
       variant="text"
       aria-label="Toggler button"
     >
       <Icon
         icon={activeState ? IconsEnum.Close : IconsEnum.Menu}
-        className={styles["menu-toggler__icon"]}
-        color="#000000"
+        className="stroke-primary-default-light dark:stroke-primary-default-dark"
+        removeInlineStyle
+        size={24}
       />
     </Button>
   );

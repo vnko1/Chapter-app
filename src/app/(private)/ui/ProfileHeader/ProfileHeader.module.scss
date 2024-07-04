@@ -1,14 +1,19 @@
 .profile-header {
-  // @apply
+  @apply fixed top-0 left-0 z-30 w-screen py-0-xl md:py-2-xs;
+
   &__container {
-    // @apply ;
+    @apply flex items-center justify-between px-1-lg mx-auto w-full md:px-4-xs;
   }
 
   &__menu-toggler {
-    // @apply ;
+    @apply lg:invisible;
   }
 
-  &__auth-side {
-    // @apply ;
+  &__opt-side {
+    @apply flex items-center gap-1-sm md:gap-2-xs lg:gap-4-xs;
+  }
+
+  &__title {
+    @apply lg:invisible text-lg font-semibold leading-h_xs tracking-[0.44px];
   }
 }
