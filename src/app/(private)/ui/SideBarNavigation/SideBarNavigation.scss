@@ -1,0 +1,7 @@
+.sidebar-nav {
+  @apply fixed top-0 left-0 w-full max-w-[308px] px-1-lg py-4-xl h-screen bg-bg-primary-light dark:bg-bg-primary-dark z-50 flex flex-col transition-all duration-150 -translate-x-full;
+
+  &.active {
+    @apply translate-x-0;
+  }
+}

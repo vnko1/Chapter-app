@@ -33,7 +33,7 @@
     @apply flex flex-col flex-1 w-screen h-screen relative overflow-x-hidden overflow-y-auto;
 
     & > main {
-      @apply relative flex-1 px-2-xs pt-[64px] md:pt-[136px] lg:pt-[132px];
+      @apply relative flex-1 px-2-xs pt-[64px] md:pt-[136px] lg:pt-[132px] bg-bg-secondary-light dark:bg-bg-secondary-dark;
     }
   }
   .private-container {
