@@ -1,14 +1,62 @@
 "use client";
 import React, { FC } from "react";
+import { usePathname } from "next/navigation";
 import cn from "classnames";
 
-import "./SideBarNavigation.scss";
 import { useNavigationToggler } from "@/context";
+import { Icon } from "@/components";
+import { IconsEnum, LinksEnum } from "@/types";
+
+import "./SideBarNavigation.scss";
+import Link from "next/link";
+
+const items = [
+  { icon: IconsEnum.Home, href: LinksEnum.DASHBOARD, text: "Feed" },
+  { icon: IconsEnum.Message, href: LinksEnum.Chat, text: "Messages" },
+  { icon: IconsEnum.Add, href: LinksEnum.Add_post, text: "Add post" },
+  {
+    icon: IconsEnum.Notification,
+    href: LinksEnum.NOTIFICATION,
+    text: "Notification",
+  },
+  { icon: IconsEnum.Search, href: LinksEnum.SEARCH, text: "Search" },
+];
+
 const SideBarNavigation: FC = () => {
-  const { isActiveMenu, setIsActiveMenu } = useNavigationToggler();
+  const { isActiveMenu } = useNavigationToggler();
+  const pathName = usePathname();
+
   return (
     <div className={cn("sidebar-nav", { ["active"]: isActiveMenu })}>
-      SideBarNavigation
+      <ul className="sidebar-nav__list">
+        {items.map((el, index) => (
+          <li key={index}>
+            <Link
+              href={el.href}
+              className={cn("sidebar-nav__btn", {
+                ["active"]: pathName === el.href,
+              })}
+            >
+              <Icon
+                size={32}
+                icon={el.icon}
+                removeInlineStyle
+                className="sidebar-nav__btn-icon"
+              />
+              <span className="sidebar-nav__btn-text">{el.text}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <button className={cn("sidebar-nav__btn")}>
+        <Icon
+          size={32}
+          icon={IconsEnum.Menu}
+          removeInlineStyle
+          className="sidebar-nav__btn-icon"
+        />
+        <span className="sidebar-nav__btn-text">More</span>
+      </button>
     </div>
   );
 };

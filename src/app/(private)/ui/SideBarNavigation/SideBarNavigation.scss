@@ -1,7 +1,36 @@
 .sidebar-nav {
-  @apply fixed top-0 left-0 w-full max-w-[308px] px-1-lg py-4-xl h-screen bg-bg-primary-light dark:bg-bg-primary-dark z-50 flex flex-col transition-all duration-150 -translate-x-full;
+  @apply fixed top-0 left-0 w-full max-w-[108px] md:max-w-[316px] lg:max-w-[376px] px-1-lg py-4-xl md:pt-[140px] h-screen bg-bg-primary-light dark:bg-bg-primary-dark z-30 transition-all duration-150 -translate-x-full flex flex-col items-center md:items-start justify-between lg:translate-x-0;
 
   &.active {
     @apply translate-x-0;
+  }
+
+  &__list {
+    @apply flex flex-col gap-1-sm;
+
+    & > li {
+      @apply py-1-sm;
+    }
+  }
+  &__btn {
+    @apply py-1-sm flex items-center w-full gap-0-xl;
+
+    &-icon {
+      @apply stroke-text-primary-light dark:stroke-text-primary-dark;
+    }
+
+    &-text {
+      @apply hidden md:inline text-lg font-semibold leading-h_xs tracking-[0.22px] text-text-primary-light dark:text-text-primary-dark;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      & .sidebar-nav__btn-icon,
+      & .sidebar-nav__btn-text {
+        @apply stroke-primary-default-light dark:stroke-primary-default-dark text-primary-default-light dark:text-primary-default-dark transition-all duration-150;
+      }
+    }
   }
 }

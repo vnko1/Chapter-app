@@ -4,7 +4,6 @@ import cn from "classnames";
 
 import { useNavigation } from "@/context";
 
-import { Logo } from "@/app/ui";
 import { Navigation } from "..";
 import styles from "./SidebarNavigation.module.scss";
 
@@ -16,9 +15,6 @@ const SidebarNavigation: FC = () => {
         [styles["active"]]: isActiveMenu,
       })}
     >
-      <div className={styles["sidebar-navigation__logo"]}>
-        <Logo classNames="max-w-[280px]" />
-      </div>
       <Navigation />
     </div>
   );

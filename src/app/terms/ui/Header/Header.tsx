@@ -3,7 +3,7 @@ import { FC } from "react";
 
 import { useNavigation } from "@/context";
 
-import { Logo, MenuToggler } from "@/app/ui";
+import { MenuToggler } from "@/app/ui";
 
 import styles from "./Header.module.scss";
 
@@ -18,7 +18,6 @@ const Header: FC = () => {
           classNames={styles["profile-header__menu-toggler"]}
           onClick={() => setIsActiveMenu && setIsActiveMenu(!isActiveMenu)}
         />
-        <Logo classNames={styles["profile-header__logo-name"]} />
       </div>
     </header>
   );
