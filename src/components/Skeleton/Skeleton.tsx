@@ -6,7 +6,7 @@ import styles from "./Skeleton.module.scss";
 const SkeletonLoader: FC = () => {
   return (
     <SkeletonTheme baseColor="#D9D7D4">
-      <div className={styles["box"]}>
+      <div className={`${styles["box"]} private-container`}>
         <div className={styles["wrapper"]}>
           <Skeleton height={52} width={52} circle />
           <Skeleton width={166} />
