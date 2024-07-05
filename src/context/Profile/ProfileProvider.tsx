@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react";
 import { useModal } from "@/hooks";
 import { IUser } from "@/types";
 import { getMe } from "@/lib/actions";
-import { SkeletonLoader } from "@/components";
+import { Loader } from "@/components";
 
 import { ProfileContext } from "./hook";
 import { ProfileProviderProps } from "./ProfileProvider.type";
@@ -20,7 +20,7 @@ const ProfileProvider: FC<ProfileProviderProps> = ({ children }) => {
     });
   }, []);
 
-  if (!user) return <SkeletonLoader />;
+  if (!user) return <Loader active />;
 
   return (
     <ProfileContext.Provider

@@ -12,7 +12,7 @@ import styles from "./Avatar.module.scss";
 
 const Avatar: FC<AvatarProps> = ({ classNames }) => {
   const { user } = useProfileContext();
-  console.log("🚀 ~ user:", user);
+
   return (
     <Link
       href={LinksEnum.PROFILE}
@@ -25,8 +25,6 @@ const Avatar: FC<AvatarProps> = ({ classNames }) => {
         id="avatar"
         style={{ objectFit: "cover" }}
       />
-      <span>{user.firstName}</span>
-      <span>{user.nickName}</span>
     </Link>
   );
 };

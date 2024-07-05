@@ -1,0 +1,18 @@
+.backdrop {
+  @apply w-full min-h-[304px] max-w-[316px] lg:max-w-[376px] bottom-0 left-0 translate-y-full flex flex-col items-center pt-0-xl pb-4-xl px-1-lg;
+}
+
+.active {
+  @apply translate-y-0;
+}
+
+.button {
+  @apply mb-0-xl;
+}
+
+.list {
+  @apply flex flex-col gap-0-xl items-start self-start;
+  & > li {
+    @apply py-1-sm;
+  }
+}

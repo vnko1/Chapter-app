@@ -1,0 +1,20 @@
+.side-bar-menu-btn {
+  @apply py-1-sm flex items-start w-full gap-0-xl;
+
+  &-icon {
+    @apply stroke-text-primary-light dark:stroke-text-primary-dark;
+  }
+
+  &-text {
+    @apply text-lg font-semibold leading-h_xs tracking-[0.22px] text-text-primary-light dark:text-text-primary-dark;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    & .side-bar-menu-btn-icon,
+    & .side-bar-menu-btn-text {
+      @apply stroke-primary-default-light dark:stroke-primary-default-dark text-primary-default-light dark:text-primary-default-dark transition-all duration-150;
+    }
+  }
+}
