@@ -4,3 +4,4 @@ export { default as UIModal } from "./UIModal/UIModal";
 export { default as ContactUs } from "./ContactUs/ContactUs";
 export { default as ErrorMessage } from "./Error/Error";
 export { default as ThemeToggler } from "./ThemeToggler/ThemeToggler";
+export { default as MenuToggler } from "./MenuToggler/MenuToggler";

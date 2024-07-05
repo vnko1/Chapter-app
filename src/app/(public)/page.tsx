@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <section className={styles["home-section"]}>
-      <div className={`container ${styles["container"]}`}>
+      <div className={`public-container ${styles["container"]}`}>
         <div className={styles["content"]}>
           <h1 className={styles["title"]}>Welcome to Chapter</h1>
           <p className={styles["text"]}>Read, discuss, make new friends!</p>

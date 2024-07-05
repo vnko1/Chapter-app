@@ -6,17 +6,20 @@ export enum LinksEnum {
   LOG_IN = "/auth/login",
   FORGOT_PASSWORD = "/auth/forgot-password",
   RESTORE = "/auth/account-restore",
+  PASSWORD_CHANGE = "/auth/change-password",
+
+  TERMS = "/terms",
+
   DASHBOARD = "/dashboard",
   SETTINGS = "/settings",
-  NOT_FOUND = "/404",
-  PASSWORD_CHANGE = "/auth/change-password",
   PROFILE = "/profile",
   USER_BOOKS = "/books",
   SEARCH = "/search",
   GUEST_BOOKS = "/:id/books",
   NOTIFICATION = "/notifications",
   POST = "/post",
-  TERMS = "/terms",
+  Chat = "/chat",
+  Add_post = "/add",
 }
 
 export enum OuterLinksEnum {

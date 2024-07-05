@@ -3,10 +3,10 @@ import React, { FC } from "react";
 import cn from "classnames";
 
 import { Icon, Modal } from "@/components";
+import { IconsEnum } from "@/types";
 
 import { UIModalProps } from "./UIModal.type";
 import styles from "./UIModal.module.scss";
-import { IconsEnum } from "@/types";
 
 const UIModal: FC<UIModalProps> = ({ children, ...props }) => {
   const menuClassNames = cn(

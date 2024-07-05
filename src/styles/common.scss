@@ -23,3 +23,21 @@
 .container {
   @apply w-full max-w-full mx-auto md:max-w-[744px] lg:max-w-[1920px] px-1-lg md:px-4-xs;
 }
+
+@layer components {
+  .public-container {
+    @apply w-full max-w-full mx-auto md:max-w-[744px] lg:max-w-[1920px] px-1-lg md:px-4-xs;
+  }
+
+  .private-layout {
+    @apply flex flex-col flex-1 w-screen h-screen relative overflow-x-hidden overflow-y-auto;
+
+    & > main {
+      @apply relative flex-1 px-2-xs pt-[64px] md:pt-[136px] lg:pt-[132px] bg-bg-secondary-light dark:bg-bg-secondary-dark;
+    }
+  }
+
+  .private-container {
+    @apply w-full mx-auto flex flex-col;
+  }
+}
