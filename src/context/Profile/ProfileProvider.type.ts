@@ -6,5 +6,4 @@ export type ProfileProviderProps = { children: ReactNode };
 export type ProfileContextType = {
   user: IUser;
   setUser: Dispatch<SetStateAction<IUser | null>>;
-  setActive: Dispatch<SetStateAction<boolean>>;
 };

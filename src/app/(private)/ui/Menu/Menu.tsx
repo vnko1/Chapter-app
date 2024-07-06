@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Link from "next/link";
 import cn from "classnames";
 
@@ -15,7 +15,9 @@ import styles from "./Menu.module.scss";
 import "./Menu.scss";
 
 const Menu: FC<MenuProps> = (props) => {
-  const contactUs = useModal();
+  const [active, setActive] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const contactUs = useModal({ active, setActive, visible, setVisible });
   return (
     <Modal
       {...props}
@@ -40,7 +42,10 @@ const Menu: FC<MenuProps> = (props) => {
         <li>
           <button
             className="side-bar-menu-btn"
-            onClick={() => contactUs.setActive(true)}
+            onClick={() => {
+              // props.close();
+              contactUs.setActive(true);
+            }}
           >
             <Icon
               size={32}

@@ -6,7 +6,7 @@
   }
 
   &-text {
-    @apply text-lg font-semibold leading-h_xs tracking-[0.22px] text-text-primary-light dark:text-text-primary-dark;
+    @apply hidden md:inline text-lg font-semibold leading-h_xs tracking-[0.22px] text-text-primary-light dark:text-text-primary-dark;
   }
 
   &:hover,

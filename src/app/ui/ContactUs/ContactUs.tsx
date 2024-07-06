@@ -14,7 +14,7 @@ const ContactUs: FC<ContactUsProps> = ({
 }) => {
   return (
     <UIModal classNames={styles["backdrop"]} {...props}>
-      <>
+      <div className={styles["menu"]}>
         <h2
           className={`text-text-primary-light dark:text-text-primary-dark ${styles["title"]}`}
         >
@@ -48,7 +48,7 @@ const ContactUs: FC<ContactUsProps> = ({
             </a>
           </li>
         </ul>
-      </>
+      </div>
     </UIModal>
   );
 };

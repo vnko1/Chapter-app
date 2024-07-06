@@ -1,17 +1,17 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import cn from "classnames";
 
 import { useNavigationToggler } from "@/context";
 import { Icon } from "@/components";
+import { useModal } from "@/hooks";
 import { IconsEnum, LinksEnum } from "@/types";
 
 import { Menu } from "..";
 
 import "./SideBarNavigation.scss";
-import { useModal } from "@/hooks";
 
 const items = [
   { icon: IconsEnum.Home, href: LinksEnum.DASHBOARD, text: "Feed" },
@@ -28,7 +28,9 @@ const items = [
 const SideBarNavigation: FC = () => {
   const { isActiveMenu } = useNavigationToggler();
   const pathName = usePathname();
-  const menu = useModal();
+  const [active, setActive] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const menu = useModal({ active, setActive, visible, setVisible });
 
   return (
     <div className={cn("sidebar-nav", { ["active"]: isActiveMenu })}>
@@ -60,7 +62,7 @@ const SideBarNavigation: FC = () => {
           size={32}
           icon={IconsEnum.Menu}
           removeInlineStyle
-          className="sidebar-nav__btn-icon"
+          className="sidebar-nav__btn-icon menu"
         />
         <span className="sidebar-nav__btn-text">More</span>
       </button>

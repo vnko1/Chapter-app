@@ -1,10 +1,12 @@
 "use client";
-import { useState } from "react";
+import { UseModalProps } from "./useModal.type";
 
-export const useModal = () => {
-  const [active, setActive] = useState(false);
-  const [visible, setVisible] = useState(false);
-
+export const useModal = ({
+  active,
+  visible,
+  setActive,
+  setVisible,
+}: UseModalProps) => {
   const close = () => {
     setVisible(false);
     setTimeout(() => {
