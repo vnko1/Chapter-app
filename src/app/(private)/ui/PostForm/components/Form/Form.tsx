@@ -7,7 +7,7 @@ import styles from "./Form.module.scss";
 import {
   Button,
   // TextAreaField,
-  TextField,
+  // TextField,
   ImageField,
   Icon,
 } from "@/components";
@@ -15,7 +15,7 @@ import { IconsEnum } from "@/types";
 
 const Form: FC<FormProps> = (props) => {
   const imageRef = useRef<HTMLInputElement | null>(null);
-  const { handleSubmit, setShowPreview, previewUrl } = props;
+  const { handleSubmit, setShowPreview, previews = [] } = props;
 
   const onSubmit = () => {
     setShowPreview(true);
@@ -40,7 +40,7 @@ const Form: FC<FormProps> = (props) => {
         name="image"
         inputRef={imageRef}
         previewClassNames={styles["preview"]}
-        previewUrl={previewUrl}
+        previews={previews}
       />
       {/* <TextField
         id="title"

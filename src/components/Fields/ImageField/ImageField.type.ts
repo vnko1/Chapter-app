@@ -5,7 +5,7 @@ import { IconsEnum } from "@/types";
 export type ImageFieldProps = {
   name: string;
   inputRef: MutableRefObject<HTMLInputElement | null>;
-  previewUrl?: string | null;
+  previews?: string[];
   alt?: string;
   classNames?: string;
   previewClassNames?: string;

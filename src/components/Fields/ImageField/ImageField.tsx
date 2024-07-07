@@ -1,6 +1,7 @@
 "use client";
 import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import Image from "next/image";
+import { Carousel } from "nuka-carousel";
 import { useFormContext } from "react-hook-form";
 
 import { Icon } from "@/components";
@@ -12,7 +13,7 @@ const ImageField: FC<ImageFieldProps> = ({
   name,
   id,
   inputRef,
-  previewUrl = null,
+  previews = [],
   alt = "",
   classNames,
   previewClassNames,
@@ -28,35 +29,32 @@ const ImageField: FC<ImageFieldProps> = ({
   multiple,
 }) => {
   const { register, setValue, getValues } = useFormContext();
-
-  const value = getValues(name);
-
+  const values = getValues(name);
   const { ref: registerRef, ...rest } = register(name);
-
-  const [preview, setPreview] = useState<null | string>(previewUrl);
-
-  useEffect(() => {
-    if (value) setPreview(URL.createObjectURL(value));
-  }, [value]);
+  const [preview, setPreview] = useState<string[]>(previews);
 
   useEffect(() => {
-    if (previewUrl) setPreview(previewUrl);
-  }, [previewUrl]);
+    if (Array.isArray(values)) {
+      setPreview(values.map((value) => URL.createObjectURL(value)));
+    }
+  }, [values]);
+
+  useEffect(() => {
+    if (previews.length) setPreview(previews);
+  }, [previews]);
 
   const handleUploadedFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files?.length) return;
-    const files = event.target.files;
-    console.log("🚀 ~ handleUploadedFile ~ files:", files);
-    // const file = event.target.files[0];
-    // setValue(name, file);
-    // const urlImage = URL.createObjectURL(file);
-    // setPreview(urlImage);
-    // event.target.value = "";
+    const filesList = event.target.files;
+    const files = Array.from(filesList);
+    setValue(name, files);
+    setPreview(files.map((file) => URL.createObjectURL(file)));
+    event.target.value = "";
   };
 
   const handleIconClick = () => {
     setValue(name, null);
-    setPreview(null);
+    setPreview([]);
   };
 
   return (
@@ -90,14 +88,18 @@ const ImageField: FC<ImageFieldProps> = ({
               />
             </button>
           )}
-          <Image
-            alt={alt}
-            src={preview}
-            placeholder={placeholder}
-            sizes={sizes}
-            width={width}
-            height={height}
-          />
+          <Carousel showArrows="hover" scrollDistance={width} wrapMode="wrap">
+            {preview.map((image) => (
+              <Image
+                key={image}
+                alt={alt}
+                src={image}
+                placeholder={placeholder}
+                width={width}
+                height={height}
+              />
+            ))}
+          </Carousel>
         </div>
       )}
     </div>
