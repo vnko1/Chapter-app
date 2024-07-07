@@ -35,24 +35,48 @@ const SideBarNavigation: FC = () => {
   return (
     <div className={cn("sidebar-nav", { ["active"]: isActiveMenu })}>
       <ul className="sidebar-nav__list">
-        {items.map((el, index) => (
-          <li key={index}>
-            <Link
-              href={el.href}
-              className={cn("sidebar-nav__btn", {
-                ["active"]: pathName === el.href,
-              })}
-            >
-              <Icon
-                size={32}
-                icon={el.icon}
-                removeInlineStyle
-                className="sidebar-nav__btn-icon"
-              />
-              <span className="sidebar-nav__btn-text">{el.text}</span>
-            </Link>
-          </li>
-        ))}
+        {items.map((el, index) => {
+          if (el.href === LinksEnum.Add_post)
+            return (
+              <li key={index}>
+                <button
+                  onClick={() => {
+                    console.log(1);
+                  }}
+                  className={cn("sidebar-nav__btn", {
+                    ["active"]: pathName === el.href,
+                  })}
+                >
+                  <Icon
+                    size={32}
+                    icon={el.icon}
+                    removeInlineStyle
+                    className="sidebar-nav__btn-icon"
+                  />
+                  <span className="sidebar-nav__btn-text">{el.text}</span>
+                </button>
+              </li>
+            );
+
+          return (
+            <li key={index}>
+              <Link
+                href={el.href}
+                className={cn("sidebar-nav__btn", {
+                  ["active"]: pathName === el.href,
+                })}
+              >
+                <Icon
+                  size={32}
+                  icon={el.icon}
+                  removeInlineStyle
+                  className="sidebar-nav__btn-icon"
+                />
+                <span className="sidebar-nav__btn-text">{el.text}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <button
         className={cn("sidebar-nav__btn")}

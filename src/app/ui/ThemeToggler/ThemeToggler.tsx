@@ -1,6 +1,5 @@
 "use client";
 import React, { FC } from "react";
-import { useRouter } from "next/navigation";
 import cn from "classnames";
 
 import { useThemeToggler } from "@/hooks";
@@ -11,10 +10,9 @@ import { IconsEnum } from "@/types";
 
 const ThemeToggler: FC = () => {
   const { toggleTheme, getCurrentTheme } = useThemeToggler();
-  const router = useRouter();
+
   const onClick = () => {
     toggleTheme();
-    router.refresh();
   };
 
   const baseClassNames = cn(
