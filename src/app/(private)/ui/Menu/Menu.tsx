@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Link from "next/link";
 import cn from "classnames";
 
@@ -15,9 +15,7 @@ import styles from "./Menu.module.scss";
 import "./Menu.scss";
 
 const Menu: FC<MenuProps> = (props) => {
-  const [active, setActive] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const contactUs = useModal({ active, setActive, visible, setVisible });
+  const contactUs = useModal();
   return (
     <Modal
       {...props}

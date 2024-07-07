@@ -7,12 +7,9 @@ import { LinksEnum } from "@/types";
 
 import { ContactUs } from "../ui";
 import styles from "./home.module.scss";
-import { useState } from "react";
 
 export default function HomePage() {
-  const [active, setActive] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const modal = useModal({ active, setActive, visible, setVisible });
+  const modal = useModal();
 
   return (
     <section className={styles["home-section"]}>

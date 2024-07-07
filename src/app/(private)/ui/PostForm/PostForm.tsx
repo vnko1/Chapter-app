@@ -38,7 +38,8 @@ const PostForm: FC<PostFormProps> = ({
       activeClassNames={styles["active"]}
     >
       <div className={styles["body"]}>
-        <button className={styles["cross-btn"]} onClick={() => props.close()}>
+        BODY
+        {/* <button className={styles["cross-btn"]} onClick={() => props.close()}>
           <Icon icon={IconEnum.Cross} size={32} />
         </button>
         <div className={styles["body__user"]}>
@@ -69,7 +70,7 @@ const PostForm: FC<PostFormProps> = ({
               />
             )}
           </FormProvider>
-        </div>
+        </div> */}
       </div>
     </Modal>
   );

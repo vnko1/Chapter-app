@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from "react";
+import { FC } from "react";
 import cn from "classnames";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -19,9 +19,7 @@ const NavigationList: FC<NavigationListProps> = ({
   classNames,
   isBottom = false,
 }) => {
-  const [active, setActive] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const modalProps = useModal({ active, setActive, visible, setVisible });
+  const modalProps = useModal();
   const router = useRouter();
   const pathname = usePathname();
 

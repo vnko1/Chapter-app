@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import cn from "classnames";
@@ -28,9 +28,7 @@ const items = [
 const SideBarNavigation: FC = () => {
   const { isActiveMenu } = useNavigationToggler();
   const pathName = usePathname();
-  const [active, setActive] = useState(false);
-  const [visible, setVisible] = useState(false);
-  const menu = useModal({ active, setActive, visible, setVisible });
+  const menu = useModal();
 
   return (
     <div className={cn("sidebar-nav", { ["active"]: isActiveMenu })}>
