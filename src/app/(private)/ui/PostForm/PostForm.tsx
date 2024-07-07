@@ -6,7 +6,8 @@ import Image from "next/image";
 
 import { Icon, Modal } from "@/components";
 import { default_avatar } from "@/utils";
-import { IconEnum } from "@/types";
+import { IconsEnum } from "@/types";
+import { useProfileContext } from "@/context";
 
 import { Form, Preview } from "./components";
 import { PostFormProps } from "./PostForm.type";
@@ -14,13 +15,13 @@ import { FormValues, postSchema } from "./validationSchema";
 import styles from "./PostForm.module.scss";
 
 const PostForm: FC<PostFormProps> = ({
-  user,
   imageUrl,
   text,
   title,
   postId,
   ...props
 }) => {
+  const { user } = useProfileContext();
   const [showPreview, setShowPreview] = useState(false);
 
   const methods = useForm<FormValues>({
@@ -37,21 +38,38 @@ const PostForm: FC<PostFormProps> = ({
       classNames={styles["modal"]}
       activeClassNames={styles["active"]}
     >
-      <div className={styles["body"]}>
-        BODY
-        {/* <button className={styles["cross-btn"]} onClick={() => props.close()}>
-          <Icon icon={IconEnum.Cross} size={32} />
-        </button>
-        <div className={styles["body__user"]}>
-          <Image
-            src={user?.avatarUrl || default_avatar}
-            alt="avatar"
-            className={styles["avatar"]}
-            width={44}
-            height={44}
-          />
-          <p>{user?.nickName}</p>
+      <div
+        className={`${styles["body"]} bg-bg-primary-light dark:bg-bg-primary-dark md:border-line-primary-light md:dark:border-line-primary-dark`}
+      >
+        <div className={styles["top-wrapper"]}>
+          <button onClick={() => props.close()}>
+            <Icon
+              icon={IconsEnum.Close}
+              size={32}
+              removeInlineStyle
+              className={`${styles["close-icon--desc"]} stroke-primary-default-light dark:stroke-primary-default-dark`}
+            />
+            <Icon
+              icon={IconsEnum.Arrow_left}
+              size={24}
+              removeInlineStyle
+              className={`${styles["close-icon--mob"]} stroke-primary-default-light dark:stroke-primary-default-dark`}
+            />
+          </button>
+          <div className={styles["body__user"]}>
+            <div className={styles["user__avatar"]}>
+              <Image
+                src={user?.avatarUrl || default_avatar}
+                alt="avatar"
+                style={{ objectFit: "contain" }}
+                fill
+              />
+            </div>
+            <p className={styles["user__nickname"]}>{user?.nickName}</p>
+          </div>
         </div>
+        {/*
+
         <div className={styles["body__content"]}>
           <FormProvider {...methods}>
             {showPreview ? (

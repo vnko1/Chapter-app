@@ -19,7 +19,7 @@ const Modal: FC<ModalProps> = ({
   side,
   ...props
 }) => {
-  useSwipe({ [side]: close, ...props });
+  useSwipe({ [side || "rSideSwipe"]: close, ...props });
 
   useEffect(() => {
     if (active) {

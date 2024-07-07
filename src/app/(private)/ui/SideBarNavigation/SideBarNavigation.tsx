@@ -9,7 +9,7 @@ import { Icon } from "@/components";
 import { useModal } from "@/hooks";
 import { IconsEnum, LinksEnum } from "@/types";
 
-import { Menu } from "..";
+import { Menu, PostForm } from "..";
 
 import "./SideBarNavigation.scss";
 
@@ -29,6 +29,7 @@ const SideBarNavigation: FC = () => {
   const { isActiveMenu } = useNavigationToggler();
   const pathName = usePathname();
   const menu = useModal();
+  const postForm = useModal();
 
   return (
     <div className={cn("sidebar-nav", { ["active"]: isActiveMenu })}>
@@ -39,7 +40,7 @@ const SideBarNavigation: FC = () => {
               <li key={index}>
                 <button
                   onClick={() => {
-                    console.log(1);
+                    postForm.setActive(true);
                   }}
                   className={cn("sidebar-nav__btn", {
                     ["active"]: pathName === el.href,
@@ -89,6 +90,7 @@ const SideBarNavigation: FC = () => {
         <span className="sidebar-nav__btn-text">More</span>
       </button>
       <Menu {...menu} />
+      <PostForm {...postForm} />
     </div>
   );
 };

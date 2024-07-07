@@ -1,31 +1,41 @@
-// .modal {
-//   @apply w-screen h-screen top-0 left-0 bg-[#fcfcfc] -translate-x-full md:translate-x-0 md:scale-0;
-//   @media screen and (min-width: 768px) {
-//     background: rgba(28, 28, 28, 0.2);
-//     backdrop-filter: blur(3px);
-//   }
-// }
+.modal {
+  @apply w-screen h-screen top-0 left-0;
+  background: rgba(252, 251, 250, 0.4);
+  backdrop-filter: blur(10px);
+}
 
-// .active {
-//   @apply translate-x-0 md:scale-100;
-// }
+.body {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full p-2-xs max-w-[342px] md:max-w-[664px] lg:max-w-[962px] min-h-[92vh] lg:min-h-0 md:border md:rounded-[12px];
 
-// .body {
-//   @apply relative w-full px-2-md py-4-xs md:bg-[#fcfcfc] md:max-w-[768px] md:min-h-[550px] md:absolute md:top-1/2 md:-translate-y-1/2 md:left-1/2 md:-translate-x-1/2 md:rounded-md flex flex-col justify-around;
+  &__user {
+    @apply flex items-center gap-0-xl;
+  }
 
-//   &__user {
-//     @apply flex items-center gap-1-xs mb-4-xs;
-//   }
+  &__content {
+    @apply flex flex-col justify-center;
+  }
+}
 
-//   &__content {
-//     @apply flex flex-col justify-center;
-//   }
-// }
+.top-wrapper {
+  @apply flex items-center gap-0-xl lg:flex-row-reverse lg:justify-between mb-1-sm md:mb-4-xs;
+}
 
-// .cross-btn {
-//   @apply absolute top-4-xs right-2-md bg-transparent text-primary;
-// }
+.close-icon {
+  &--mob {
+    @apply lg:hidden;
+  }
 
-// .avatar {
-//   @apply rounded-[50px] overflow-hidden w-[44px] h-[44px];
-// }
+  &--desc {
+    @apply hidden lg:inline-block;
+  }
+}
+
+.user {
+  &__avatar {
+    @apply relative rounded-[50px] overflow-hidden w-[40px] h-[40px] md:w-[52px] md:h-[52px];
+  }
+
+  &__nickname {
+    @apply text-sm font-medium leading-lg tracking-[0.154px] md:text-base md:font-normal md:leading-xl md:tracking-[0.176px];
+  }
+}

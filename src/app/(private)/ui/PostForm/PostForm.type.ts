@@ -1,9 +1,8 @@
-import { IUser, ModalType } from "@/types";
+import { IModal } from "@/types";
 
 export type PostFormProps = {
-  user: IUser | null;
   postId?: string;
   title?: string;
   text?: string;
   imageUrl?: string | null;
-} & ModalType;
+} & IModal;
