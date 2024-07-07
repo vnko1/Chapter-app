@@ -14,6 +14,7 @@ export type ImageFieldProps = {
   sizes?: string;
   id: string;
   objectFit?: "contain" | "cover";
+  iconButtonClassNames?: string;
   iconClassNames?: string;
   iconSize?: number;
   icon?: IconsEnum;

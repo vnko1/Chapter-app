@@ -23,6 +23,7 @@ const ImageField: FC<ImageFieldProps> = ({
   icon,
   iconClassNames,
   iconSize,
+  iconButtonClassNames,
 }) => {
   const { register, setValue, getValues } = useFormContext();
 
@@ -75,8 +76,13 @@ const ImageField: FC<ImageFieldProps> = ({
           className={`${styles["picture-field__image"]} ${previewClassNames}`}
         >
           {icon && (
-            <button onClick={handleCrossClick} className={iconClassNames}>
-              <Icon size={iconSize} icon={icon} removeInlineStyle />
+            <button onClick={handleCrossClick} className={iconButtonClassNames}>
+              <Icon
+                size={iconSize}
+                icon={icon}
+                removeInlineStyle
+                className={iconClassNames}
+              />
             </button>
           )}
           <Image
