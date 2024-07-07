@@ -9,7 +9,7 @@ import { default_avatar } from "@/utils";
 import { IconsEnum } from "@/types";
 import { useProfileContext } from "@/context";
 
-import { Form, Preview } from "./components";
+import { Form } from "./components";
 import { PostFormProps } from "./PostForm.type";
 import { FormValues, postSchema } from "./validationSchema";
 import styles from "./PostForm.module.scss";
@@ -68,19 +68,19 @@ const PostForm: FC<PostFormProps> = ({
             <p className={styles["user__nickname"]}>{user?.nickName}</p>
           </div>
         </div>
-        {/*
 
         <div className={styles["body__content"]}>
           <FormProvider {...methods}>
             {showPreview ? (
-              <Preview
-                close={props.close}
-                reset={reset}
-                values={getValues()}
-                setShowPreview={setShowPreview}
-                postId={postId}
-              />
+              <div>PREVIEW</div>
             ) : (
+              // <Preview
+              //   close={props.close}
+              //   reset={reset}
+              //   values={getValues()}
+              //   setShowPreview={setShowPreview}
+              //   postId={postId}
+              // />
               <Form
                 setShowPreview={setShowPreview}
                 previewUrl={imageUrl}
@@ -88,7 +88,7 @@ const PostForm: FC<PostFormProps> = ({
               />
             )}
           </FormProvider>
-        </div> */}
+        </div>
       </div>
     </Modal>
   );

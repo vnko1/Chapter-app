@@ -19,11 +19,13 @@ const ImageField: FC<ImageFieldProps> = ({
   placeholder,
   disabled,
   sizes = "",
-  objectFit = "contain",
+  width,
+  height,
   icon,
   iconClassNames,
   iconSize,
   iconButtonClassNames,
+  multiple,
 }) => {
   const { register, setValue, getValues } = useFormContext();
 
@@ -43,14 +45,16 @@ const ImageField: FC<ImageFieldProps> = ({
 
   const handleUploadedFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files?.length) return;
-    const file = event.target.files[0];
-    setValue(name, file);
-    const urlImage = URL.createObjectURL(file);
-    setPreview(urlImage);
-    event.target.value = "";
+    const files = event.target.files;
+    console.log("🚀 ~ handleUploadedFile ~ files:", files);
+    // const file = event.target.files[0];
+    // setValue(name, file);
+    // const urlImage = URL.createObjectURL(file);
+    // setPreview(urlImage);
+    // event.target.value = "";
   };
 
-  const handleCrossClick = () => {
+  const handleIconClick = () => {
     setValue(name, null);
     setPreview(null);
   };
@@ -59,6 +63,7 @@ const ImageField: FC<ImageFieldProps> = ({
     <div className={`${styles["picture-field"]} ${classNames}`}>
       <input
         type="file"
+        multiple={multiple}
         id={id}
         {...rest}
         ref={(el) => {
@@ -76,7 +81,7 @@ const ImageField: FC<ImageFieldProps> = ({
           className={`${styles["picture-field__image"]} ${previewClassNames}`}
         >
           {icon && (
-            <button onClick={handleCrossClick} className={iconButtonClassNames}>
+            <button onClick={handleIconClick} className={iconButtonClassNames}>
               <Icon
                 size={iconSize}
                 icon={icon}
@@ -90,8 +95,8 @@ const ImageField: FC<ImageFieldProps> = ({
             src={preview}
             placeholder={placeholder}
             sizes={sizes}
-            fill
-            style={{ objectFit }}
+            width={width}
+            height={height}
           />
         </div>
       )}
