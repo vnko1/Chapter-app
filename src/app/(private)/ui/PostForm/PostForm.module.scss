@@ -1,0 +1,9 @@
+.modal {
+  @apply w-screen h-screen top-0 left-0;
+  background: rgba(252, 251, 250, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.menu {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-2-xs w-full rounded-[12px] max-w-[92svw] lg:max-w-[962px] min-h-[92svh] lg:min-h-0 gap-1-sm md:gap-4-xs;
+}

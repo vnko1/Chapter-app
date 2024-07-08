@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 
 export interface IModal {
   setVisible: Dispatch<SetStateAction<boolean>>;
+  setActive: Dispatch<SetStateAction<boolean>>;
   close: () => void;
   active: boolean;
   visible: boolean;

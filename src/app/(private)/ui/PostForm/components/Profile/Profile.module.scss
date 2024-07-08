@@ -1,0 +1,25 @@
+.menu {
+  @apply flex items-center gap-1-lg md:gap-1-xl lg:gap-2-xs lg:flex-row-reverse lg:justify-between;
+}
+
+.icon {
+  &--mob {
+    @apply lg:hidden;
+  }
+
+  &--desc {
+    @apply hidden lg:block;
+  }
+}
+
+.user {
+  @apply flex items-center gap-0-xl;
+}
+
+.avatar {
+  @apply relative overflow-hidden rounded-[50px] w-[40px] h-[40px] md:w-[52px] md:h-[52px];
+}
+
+.nickname {
+  @apply text-sm font-medium leading-lg tracking-[0.154px] md:text-base md:font-normal md:leading-xl md:tracking-[0.176px];
+}
