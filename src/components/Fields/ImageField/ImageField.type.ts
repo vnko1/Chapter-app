@@ -1,22 +1,10 @@
-import { MutableRefObject } from "react";
-
-import { IconsEnum } from "@/types";
+import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 export type ImageFieldProps = {
+  setPreviews: Dispatch<SetStateAction<string[]>>;
+  id: string;
   name: string;
   inputRef: MutableRefObject<HTMLInputElement | null>;
-  previews?: string[];
-  alt?: string;
-  classNames?: string;
-  previewClassNames?: string;
   disabled?: boolean;
-  id: string;
-  width: number;
-  height: number;
-  iconButtonClassNames?: string;
-  iconClassNames?: string;
-  iconSize?: number;
-  icon?: IconsEnum;
-  multiple?: boolean;
-  imageClassNames?: string;
+  classNames?: string;
 };

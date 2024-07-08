@@ -9,8 +9,7 @@ import { Icon } from "@/components";
 import { useModal } from "@/hooks";
 import { IconsEnum, LinksEnum } from "@/types";
 
-import { Menu, PostForm } from "..";
-
+import { Menu } from "..";
 import "./SideBarNavigation.scss";
 
 const items = [
@@ -90,7 +89,6 @@ const SideBarNavigation: FC = () => {
         <span className="sidebar-nav__btn-text">More</span>
       </button>
       <Menu {...menu} />
-      <PostForm {...postForm} />
     </div>
   );
 };
