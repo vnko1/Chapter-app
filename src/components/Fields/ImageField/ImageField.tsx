@@ -8,6 +8,7 @@ import { Icon } from "@/components";
 
 import { ImageFieldProps } from "./ImageField.type";
 import styles from "./ImageField.module.scss";
+import { CarouselImage } from "./components";
 
 const ImageField: FC<ImageFieldProps> = ({
   name,
@@ -17,9 +18,7 @@ const ImageField: FC<ImageFieldProps> = ({
   alt = "",
   classNames,
   previewClassNames,
-  placeholder,
   disabled,
-  sizes = "",
   width,
   height,
   icon,
@@ -27,6 +26,7 @@ const ImageField: FC<ImageFieldProps> = ({
   iconSize,
   iconButtonClassNames,
   multiple,
+  imageClassNames,
 }) => {
   const { register, setValue, getValues } = useFormContext();
   const values = getValues(name);
@@ -88,18 +88,20 @@ const ImageField: FC<ImageFieldProps> = ({
               />
             </button>
           )}
-          <Carousel showArrows="hover" scrollDistance={width} wrapMode="wrap">
-            {preview.map((image) => (
-              <Image
-                key={image}
-                alt={alt}
-                src={image}
-                placeholder={placeholder}
-                width={width}
-                height={height}
-              />
-            ))}
-          </Carousel>
+          <div className="relative">
+            <Carousel showArrows="hover" scrollDistance={width} wrapMode="wrap">
+              {preview.map((src) => (
+                <CarouselImage
+                  key={src}
+                  src={src}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  classNames={imageClassNames}
+                />
+              ))}
+            </Carousel>
+          </div>
         </div>
       )}
     </div>

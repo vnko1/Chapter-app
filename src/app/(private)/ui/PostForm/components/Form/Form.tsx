@@ -41,6 +41,7 @@ const Form: FC<FormProps> = (props) => {
         inputRef={imageRef}
         previewClassNames={styles["preview"]}
         previews={previews}
+        imageClassNames="min-w-[280px] min-h-[172px]"
       />
       {/* <TextField
         id="title"

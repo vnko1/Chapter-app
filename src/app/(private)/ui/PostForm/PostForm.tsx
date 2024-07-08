@@ -61,7 +61,7 @@ const PostForm: FC<PostFormProps> = ({
               <Image
                 src={user?.avatarUrl || default_avatar}
                 alt="avatar"
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "cover" }}
                 fill
               />
             </div>

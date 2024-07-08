@@ -1,5 +1,5 @@
 import { MutableRefObject } from "react";
-import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
+
 import { IconsEnum } from "@/types";
 
 export type ImageFieldProps = {
@@ -10,8 +10,6 @@ export type ImageFieldProps = {
   classNames?: string;
   previewClassNames?: string;
   disabled?: boolean;
-  placeholder?: PlaceholderValue;
-  sizes?: string;
   id: string;
   width: number;
   height: number;
@@ -20,4 +18,5 @@ export type ImageFieldProps = {
   iconSize?: number;
   icon?: IconsEnum;
   multiple?: boolean;
+  imageClassNames?: string;
 };
