@@ -1,3 +1,7 @@
 import { IModal } from "@/types";
 
-export type PostFormProps = IModal;
+export type PostFormProps = {
+  previews?: string[];
+  title?: string;
+  text?: string;
+} & IModal;

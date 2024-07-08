@@ -1,34 +1,27 @@
 "use client";
-import React, { ChangeEvent, FC, useEffect } from "react";
+import React, { ChangeEvent, FC } from "react";
 import { useFormContext } from "react-hook-form";
 
 import { ImageFieldProps } from "./ImageField.type";
 import styles from "./ImageField.module.scss";
 
 const ImageField: FC<ImageFieldProps> = ({
-  setPreviews,
+  setFiles,
   name,
   id,
   inputRef,
   classNames,
   disabled,
 }) => {
-  const { register, setValue, getValues } = useFormContext();
-  const values = getValues(name);
+  const { register, setValue } = useFormContext();
   const { ref: registerRef, ...rest } = register(name);
-
-  useEffect(() => {
-    if (Array.isArray(values)) {
-      setPreviews(values.map((value) => URL.createObjectURL(value)));
-    }
-  }, [setPreviews, values]);
 
   const handleUploadedFile = (event: ChangeEvent<HTMLInputElement>) => {
     if (!event.target.files?.length) return;
     const filesList = event.target.files;
     const files = Array.from(filesList);
     setValue(name, files);
-    setPreviews(files.map((file) => URL.createObjectURL(file)));
+    setFiles && setFiles(files);
     event.target.value = "";
   };
 

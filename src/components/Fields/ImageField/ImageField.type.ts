@@ -1,7 +1,7 @@
 import { Dispatch, MutableRefObject, SetStateAction } from "react";
 
 export type ImageFieldProps = {
-  setPreviews: Dispatch<SetStateAction<string[]>>;
+  setFiles?: Dispatch<SetStateAction<Array<File>>>;
   id: string;
   name: string;
   inputRef: MutableRefObject<HTMLInputElement | null>;

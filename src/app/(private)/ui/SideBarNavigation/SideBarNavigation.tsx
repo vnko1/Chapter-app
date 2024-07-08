@@ -15,7 +15,7 @@ import "./SideBarNavigation.scss";
 const items = [
   { icon: IconsEnum.Home, href: LinksEnum.DASHBOARD, text: "Feed" },
   { icon: IconsEnum.Message, href: LinksEnum.Chat, text: "Messages" },
-  { icon: IconsEnum.Add, href: LinksEnum.Add_post, text: "Add post" },
+  { icon: IconsEnum.Add_rect, href: LinksEnum.Add_post, text: "Add post" },
   {
     icon: IconsEnum.Notification,
     href: LinksEnum.NOTIFICATION,
