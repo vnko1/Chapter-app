@@ -42,7 +42,7 @@ const TextAreaField: FC<TextAreaFieldProps> = ({
   );
 
   const inputBaseClassNames = cn(
-    "text-field__input",
+    "text-area-field__input",
     inputSizeClassNames,
     inputClassNames
   );
