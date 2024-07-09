@@ -25,12 +25,6 @@ export async function middleware(req: NextRequest) {
       return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
     if (currentPath.startsWith(LinksEnum.SEARCH))
       return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
-    if (currentPath.startsWith(LinksEnum.SETTINGS))
-      return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
-    if (currentPath.startsWith(LinksEnum.PROFILE))
-      return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
-    if (currentPath.startsWith(LinksEnum.POST))
-      return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
   }
 
   return NextResponse.next();
