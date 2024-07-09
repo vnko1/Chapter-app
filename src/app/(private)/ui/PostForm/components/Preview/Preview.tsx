@@ -37,7 +37,8 @@ const Preview: FC<PreviewProps> = ({
     const fd = new FormData();
     if (text) fd.append("text", text);
     if (title) fd.append("title", title);
-    if (images) images.forEach((image) => fd.append(image.name, image));
+    if (images)
+      images.forEach((image) => fd.append("images", image, image.name));
 
     setIsLoading(true);
     try {
