@@ -1,4 +1,4 @@
-.text-field {
+.text-area-field {
   @apply w-full;
 
   &--has-error {
@@ -32,7 +32,7 @@
   }
 
   &__input {
-    @apply transition-all duration-150 block w-full rounded-md outline-none border bg-text-secondary-dark dark:bg-[#1A1104] text-[#291A04] dark:text-text-secondary-dark border-line-primary-light dark:border-[#1F1405];
+    @apply transition-all duration-150 block w-full rounded-md outline-none border bg-text-secondary-dark dark:bg-[#1A1104] text-[#291A04] dark:text-text-secondary-dark border-line-primary-light dark:border-[#1F1405] resize-none;
 
     & ~ .icon {
       @apply stroke-[#291A04] dark:stroke-text-secondary-dark;
@@ -41,7 +41,7 @@
     &:placeholder-shown {
       @apply text-text-subtitle-light dark:text-text-subtitle-dark;
 
-      & ~ .icon.icon--right {
+      & ~ .icon {
         @apply stroke-line-disabled-light dark:stroke-line-disabled-dark;
       }
     }
@@ -67,11 +67,7 @@
     &.input--small {
       @apply p-0-xl text-sm font-normal leading-lg tracking-[0.154px];
 
-      &.left-icon {
-        @apply pl-4-xs;
-      }
-
-      &.right-icon {
+      &.icon {
         @apply pr-3-sm;
       }
     }
@@ -79,11 +75,7 @@
     &.input--normal {
       @apply px-0-xl py-1-xs text-base font-medium leading-xl tracking-[0.176px];
 
-      &.left-icon {
-        @apply pl-4-xs;
-      }
-
-      &.right-icon {
+      &.icon {
         @apply pr-3-sm;
       }
     }
@@ -91,11 +83,7 @@
     &.input--large {
       @apply px-0-xl py-1-sm text-base font-medium leading-xl tracking-[0.176px];
 
-      &.left-icon {
-        @apply pl-4-xs;
-      }
-
-      &.right-icon {
+      &.icon {
         @apply pr-3-sm;
       }
     }
@@ -107,15 +95,7 @@
 }
 
 .icon {
-  @apply absolute top-1/2 -translate-y-1/2;
-
-  &--left {
-    @apply left-0-xl;
-  }
-
-  &--right {
-    @apply right-0-xl;
-  }
+  @apply absolute top-1/2 -translate-y-1/2  right-0-xl;
 }
 
 .error {

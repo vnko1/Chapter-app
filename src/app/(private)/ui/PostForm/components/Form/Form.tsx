@@ -3,7 +3,13 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { IconsEnum } from "@/types";
-import { Button, Icon, ImageField, TextField } from "@/components";
+import {
+  Button,
+  Icon,
+  ImageField,
+  TextAreaField,
+  TextField,
+} from "@/components";
 
 import { FormProps } from "./Form.type";
 import { FormValues, postSchema } from "./validationSchema";
@@ -11,10 +17,16 @@ import styles from "./Form.module.scss";
 import { Carousel } from "nuka-carousel";
 import CarouselImage from "../CarouselImage/CarouserImage";
 
-const Form: FC<FormProps> = ({ text, title, files, previews, setPreviews }) => {
+const Form: FC<FormProps> = ({
+  postForm,
+  previews,
+  setPostForm,
+  setShowPost,
+  setPreviews,
+}) => {
   const imageFieldRef = useRef<HTMLInputElement | null>(null);
   const methods = useForm<FormValues>({
-    values: { text, title, images: files },
+    values: postForm,
     resolver: zodResolver(postSchema),
     mode: "onChange",
   });
@@ -39,7 +51,8 @@ const Form: FC<FormProps> = ({ text, title, files, previews, setPreviews }) => {
   };
 
   const onSubmit: SubmitHandler<FormValues> = (formValues) => {
-    console.log("🚀 ~ formValues:", formValues);
+    setPostForm(formValues);
+    setShowPost(true);
   };
 
   return (
@@ -83,6 +96,13 @@ const Form: FC<FormProps> = ({ text, title, files, previews, setPreviews }) => {
           name="title"
           label="Add a title"
           aria-label="Title input field"
+        />
+        <TextAreaField
+          id="text"
+          name="text"
+          label="Description"
+          aria-label="post description field"
+          inputClassNames={styles["form__text-area"]}
         />
         <Button
           type="submit"

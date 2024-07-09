@@ -14,6 +14,9 @@ const PostForm: FC<PostFormProps> = ({ title, text, previews, ...props }) => {
     postText: text,
     postPreviews: previews,
   });
+
+  const { postForm } = postFormMethods;
+  console.log("🚀 ~ postForm:", postForm);
   return (
     <Modal {...props} classNames={styles["modal"]}>
       <div

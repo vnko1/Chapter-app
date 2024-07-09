@@ -1,6 +1,10 @@
 .form {
   @apply flex flex-col gap-0-xl md:gap-2-xs;
 
+  &__text-area {
+    @apply h-[152px] md:h-[148px];
+  }
+
   &__button {
     @apply max-w-[208px] mx-auto;
   }
