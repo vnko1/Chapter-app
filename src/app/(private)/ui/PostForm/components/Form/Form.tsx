@@ -31,12 +31,7 @@ const Form: FC<FormProps> = ({
     mode: "onChange",
   });
 
-  const {
-    handleSubmit,
-    watch,
-    setValue,
-    formState: { isValid },
-  } = methods;
+  const { handleSubmit, watch, setValue } = methods;
 
   const images: Array<File> | undefined = watch("images");
 
@@ -110,7 +105,6 @@ const Form: FC<FormProps> = ({
           aria-label="Form submit button"
           classNames={`${styles["form__button"]} ${styles["form__button--mob"]}`}
           fullWidth
-          disabled={!isValid}
         >
           Confirm
         </Button>
@@ -120,7 +114,6 @@ const Form: FC<FormProps> = ({
           classNames={`${styles["form__button"]} ${styles["form__button--desc"]}`}
           fullWidth
           size="large"
-          disabled={!isValid}
         >
           Confirm
         </Button>

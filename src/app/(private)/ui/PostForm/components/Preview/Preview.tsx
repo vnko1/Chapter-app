@@ -26,14 +26,25 @@ const Preview: FC<PreviewProps> = ({
     setShowPost(false);
   };
 
+  const reset = () => {
+    setPostForm({ text: "", title: "", images: [] });
+    setShowPost(false);
+    close();
+  };
+
   const handleAddPost = async () => {
+    const { images, text, title } = postForm;
+    const fd = new FormData();
+    if (text) fd.append("text", text);
+    if (title) fd.append("title", title);
+    if (images) images.forEach((image) => fd.append(image.name, image));
+
     setIsLoading(true);
     try {
-      const res = await addPost(postForm);
+      const res = await addPost(fd);
       console.log("🚀 ~ handleAddPost ~ res:", res);
       if (res?.isError) throw new CustomError(res.error);
-      setPostForm({ text: "", title: "", images: [] });
-      close();
+      reset();
     } catch (error) {
       if (error instanceof CustomError) {
         setError(error.errorMessage);
@@ -44,12 +55,13 @@ const Preview: FC<PreviewProps> = ({
   };
 
   const handleEditPost = async (postId: string) => {
+    const fd = new FormData();
+
     setIsLoading(true);
     try {
-      const res = await changePost({ postId, data: postForm });
+      const res = await changePost({ postId, data: fd });
       if (res?.isError) throw new CustomError(res.error);
-      setPostForm({ text: "", title: "", images: [] });
-      close();
+      reset();
     } catch (error) {
       if (error instanceof CustomError) {
         setError(error.errorMessage);
