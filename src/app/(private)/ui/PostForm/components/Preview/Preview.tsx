@@ -43,7 +43,6 @@ const Preview: FC<PreviewProps> = ({
     setIsLoading(true);
     try {
       const res = await addPost(fd);
-      console.log("🚀 ~ handleAddPost ~ res:", res);
       if (res?.isError) throw new CustomError(res.error);
       reset();
     } catch (error) {
@@ -57,7 +56,10 @@ const Preview: FC<PreviewProps> = ({
 
   const handleEditPost = async (postId: string) => {
     const fd = new FormData();
-
+    if (text) fd.append("text", text);
+    if (title) fd.append("title", title);
+    if (images)
+      images.forEach((image) => fd.append("images", image, image.name));
     setIsLoading(true);
     try {
       const res = await changePost({ postId, data: fd });
