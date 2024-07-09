@@ -4,7 +4,7 @@ import React, { FC } from "react";
 import { Modal } from "@/components";
 import { usePost } from "@/hooks";
 
-import { Form, Profile } from "./components";
+import { Form, Preview, Profile } from "./components";
 import { PostFormProps } from "./PostForm.type";
 import styles from "./PostForm.module.scss";
 
@@ -15,8 +15,6 @@ const PostForm: FC<PostFormProps> = ({ title, text, previews, ...props }) => {
     postPreviews: previews,
   });
 
-  const { postForm } = postFormMethods;
-  console.log("🚀 ~ postForm:", postForm);
   return (
     <Modal {...props} classNames={styles["modal"]}>
       <div
@@ -24,7 +22,11 @@ const PostForm: FC<PostFormProps> = ({ title, text, previews, ...props }) => {
       >
         <Profile {...props} />
         {postFormMethods.showPost ? (
-          <>Preview</>
+          <Preview
+            {...postFormMethods}
+            previews={previews || []}
+            close={props.close}
+          />
         ) : (
           <Form {...postFormMethods} />
         )}

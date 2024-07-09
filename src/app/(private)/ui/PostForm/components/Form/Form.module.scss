@@ -7,6 +7,13 @@
 
   &__button {
     @apply max-w-[208px] mx-auto;
+    &--mob {
+      @apply lg:hidden;
+    }
+
+    &--desc {
+      @apply hidden lg:flex;
+    }
   }
 }
 

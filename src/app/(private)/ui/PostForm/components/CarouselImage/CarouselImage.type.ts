@@ -8,6 +8,7 @@ export type CarouselImageProps = {
   height: number;
   images?: Array<File>;
   classNames?: string;
-  setValue: UseFormSetValue<{ images?: File[] }>;
-  setPreviews: Dispatch<SetStateAction<Array<string>>>;
+  showDeleteButton?: boolean;
+  setValue?: UseFormSetValue<{ images?: File[] }>;
+  setPreviews?: Dispatch<SetStateAction<Array<string>>>;
 };

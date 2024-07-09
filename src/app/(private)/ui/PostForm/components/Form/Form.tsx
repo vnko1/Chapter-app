@@ -35,7 +35,7 @@ const Form: FC<FormProps> = ({
     handleSubmit,
     watch,
     setValue,
-    formState: { isDirty, isValid },
+    formState: { isValid },
   } = methods;
 
   const images: Array<File> | undefined = watch("images");
@@ -68,7 +68,7 @@ const Form: FC<FormProps> = ({
             size={24}
             icon={IconsEnum.Gallery}
             removeInlineStyle
-            className="stroke-primary-default-light  dark:stroke-primary-default-dark"
+            className="stroke-primary-default-light dark:stroke-primary-default-dark"
           />
           <span>.png, .jpg, .gif</span>
         </button>
@@ -88,6 +88,7 @@ const Form: FC<FormProps> = ({
               classNames="min-h-[172px] min-w-[280px]"
               setValue={setValue}
               setPreviews={setPreviews}
+              showDeleteButton
             />
           ))}
         </Carousel>
@@ -107,10 +108,19 @@ const Form: FC<FormProps> = ({
         <Button
           type="submit"
           aria-label="Form submit button"
-          classNames={styles["form__button"]}
+          classNames={`${styles["form__button"]} ${styles["form__button--mob"]}`}
+          fullWidth
+          disabled={!isValid}
+        >
+          Confirm
+        </Button>
+        <Button
+          type="submit"
+          aria-label="Form submit button"
+          classNames={`${styles["form__button"]} ${styles["form__button--desc"]}`}
           fullWidth
           size="large"
-          disabled={!isValid || !isDirty}
+          disabled={!isValid}
         >
           Confirm
         </Button>

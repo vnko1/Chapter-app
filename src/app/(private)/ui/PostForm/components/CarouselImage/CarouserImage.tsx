@@ -11,33 +11,37 @@ const CarouselImage: FC<CarouselImageProps> = ({
   alt,
   classNames,
   images,
+  showDeleteButton = false,
   setValue,
   setPreviews,
   ...props
 }) => {
   const onDelete = () => {
     if (typeof image === "string") {
-      setPreviews((previews) =>
-        previews.filter((preview) => preview !== image)
-      );
+      setPreviews &&
+        setPreviews((previews) =>
+          previews.filter((preview) => preview !== image)
+        );
     } else if (images) {
       const filteredImages = images.filter(
         (imageToDelete) => imageToDelete.name !== image.name
       );
-      setValue("images", filteredImages);
+      setValue && setValue("images", filteredImages);
     }
   };
   return (
     <div className={`${styles["thumb"]} ${classNames}`}>
-      <button className={styles["button"]}>
-        <Icon
-          icon={IconsEnum.Trash}
-          size={32}
-          removeInlineStyle
-          className="fill-error-primary-light dark:fill-error-primary-dark"
-          onClick={onDelete}
-        />
-      </button>
+      {showDeleteButton && (
+        <button className={styles["button"]}>
+          <Icon
+            icon={IconsEnum.Trash}
+            size={32}
+            removeInlineStyle
+            className="fill-error-primary-light dark:fill-error-primary-dark"
+            onClick={onDelete}
+          />
+        </button>
+      )}
       <Image
         src={typeof image === "string" ? image : URL.createObjectURL(image)}
         {...props}
