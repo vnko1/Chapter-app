@@ -3,7 +3,7 @@ import { FC } from "react";
 
 import { useNavigation } from "@/context";
 
-import { MenuToggler } from "@/app/(app)/ui";
+import { MenuToggler } from "@/app/ui";
 
 import styles from "./Header.module.scss";
 

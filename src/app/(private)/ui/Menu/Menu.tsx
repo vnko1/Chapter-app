@@ -8,7 +8,7 @@ import { IconsEnum, LinksEnum } from "@/types";
 import { useModal } from "@/hooks";
 import { logout } from "@/lib/session";
 
-import { ContactUs } from "@/app/(app)/ui";
+import { ContactUs } from "@/app/ui";
 
 import { MenuProps } from "./Menu.type";
 import styles from "./Menu.module.scss";

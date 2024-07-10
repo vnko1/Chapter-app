@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { CustomError } from "@/services";
 import { resentOtp } from "@/lib/actions";
 
-import { ErrorMessage } from "@/app/(app)/ui";
+import { ErrorMessage } from "@/app/ui";
 import { ResentOTPProps } from "./ResentOTP.type";
 import styles from "./ResentOTP.module.scss";
 

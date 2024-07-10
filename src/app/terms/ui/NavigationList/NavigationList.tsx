@@ -9,7 +9,7 @@ import { IconsEnum, LinksEnum } from "@/types";
 import { useModal } from "@/hooks";
 import { Icon } from "@/components";
 
-import { ContactUs } from "@/app/(app)/ui";
+import { ContactUs } from "@/app/ui";
 
 import { NavigationListProps } from "./NavigationList.type";
 import styles from "./NavigationList.module.scss";
