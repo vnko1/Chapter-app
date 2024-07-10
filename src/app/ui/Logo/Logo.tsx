@@ -1,5 +1,6 @@
 "use client";
 import { FC } from "react";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +8,6 @@ import { useThemeProviderContext } from "@/context";
 import { LinksEnum } from "@/types";
 
 import { LogoProps } from "./Logo.type";
-import { usePathname } from "next/navigation";
 
 const Logo: FC<LogoProps> = ({ classNames, hideLogo }) => {
   const { isDarkTheme } = useThemeProviderContext();
