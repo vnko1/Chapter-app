@@ -1,12 +1,17 @@
 import React from "react";
 
 import styles from "./searchPage.module.scss";
+import { Search } from "./ui";
 
-function SearchPage() {
+async function SearchPage({
+  searchParams,
+}: {
+  searchParams: { query?: string };
+}) {
   return (
-    <section>
+    <section className="private-section">
       <div className={`${styles["container"]} private-container`}>
-        SearchPage
+        <Search query={searchParams.query} />
       </div>
     </section>
   );

@@ -37,6 +37,10 @@
     }
   }
 
+  .private-section {
+    @apply pl-[376px];
+  }
+
   .private-container {
     @apply w-full mx-auto flex flex-col bg-bg-primary-light dark:bg-bg-primary-dark rounded-[12px] p-2-xs lg:max-w-[962px];
   }

@@ -6,14 +6,14 @@ import cn from "classnames";
 import { Icon } from "@/components";
 import { IconsEnum } from "@/types";
 
-import styles from "./SearchField.module.scss";
 import { SearchFieldProps } from "./SearchField.type";
+import "./SearchField.scss";
 
 const SearchField: FC<SearchFieldProps> = ({
   classNames,
   control,
   handleSearch,
-  size,
+  size = "normal",
   ...props
 }) => {
   const { field } = useController({ name: "query", control });
@@ -23,9 +23,18 @@ const SearchField: FC<SearchFieldProps> = ({
     handleSearch(event.target.value);
   };
 
+  const fieldClassNames = cn(
+    "search__field",
+    {
+      "search__field--small": size === "small",
+      "search__field--normal": size === "normal",
+      "search__field--large": size === "large",
+    },
+    classNames
+  );
+
   return (
-    <label className={`search ${classNames}`}>
-      <Icon size={24} icon={IconsEnum.Search} />
+    <label className="search">
       <input
         {...props}
         name={field.name}
@@ -34,7 +43,13 @@ const SearchField: FC<SearchFieldProps> = ({
         ref={field.ref}
         onChange={onHandleChange}
         type="text"
-        className="search__field"
+        className={fieldClassNames}
+      />
+      <Icon
+        size={24}
+        icon={IconsEnum.Search}
+        removeInlineStyle
+        className="search__icon"
       />
     </label>
   );
