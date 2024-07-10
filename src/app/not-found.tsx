@@ -4,7 +4,7 @@ import Image from "next/image";
 import { LinksEnum } from "@/types";
 import { Button } from "@/components";
 
-import { Header } from "./ui";
+import { Header } from "./(app)/ui";
 
 import styles from "./chapter.module.scss";
 

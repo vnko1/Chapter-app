@@ -9,7 +9,7 @@ import { CustomError } from "@/services";
 import { Button, Icon, TextField } from "@/components";
 import { emailConfirm } from "@/lib/actions";
 
-import { ErrorMessage } from "@/app/ui";
+import { ErrorMessage } from "@/app/(app)/ui";
 import { ResentOTP } from "..";
 import styles from "../Form.module.scss";
 import { OTPFormValue, OTPSchema } from "./validationSchema";

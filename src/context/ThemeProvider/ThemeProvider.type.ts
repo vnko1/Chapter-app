@@ -1,8 +1,8 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { ReactNode } from "react";
 
 export type ThemeProviderType = {
   isDarkTheme: boolean;
-  setIsDarkTheme: Dispatch<SetStateAction<boolean>>;
+  themeToggler: () => void;
 };
 
 export type ThemeProviderProps = { children: ReactNode };

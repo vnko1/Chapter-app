@@ -11,7 +11,7 @@ import { LinksEnum } from "@/types";
 import { login } from "@/lib/session";
 import { signIn } from "@/lib/actions";
 
-import { ErrorMessage } from "@/app/ui";
+import { ErrorMessage } from "@/app/(app)/ui";
 
 import { LoginFormProps } from "./LoginForm.type";
 import { FormValues, loginSchema } from "./validationSchema";

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useNavigationToggler } from "@/context";
 import { LinksEnum } from "@/types";
 
-import { Logo, MenuToggler, ThemeToggler } from "@/app/ui";
+import { Logo, MenuToggler, ThemeToggler } from "@/app/(app)/ui";
 
 import { Avatar } from "..";
 

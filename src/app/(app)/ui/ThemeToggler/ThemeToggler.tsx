@@ -8,10 +8,10 @@ import styles from "./ThemeToggler.module.scss";
 import { useThemeProviderContext } from "@/context";
 
 const ThemeToggler: FC = () => {
-  const { isDarkTheme, setIsDarkTheme } = useThemeProviderContext();
+  const { isDarkTheme, themeToggler } = useThemeProviderContext();
 
   const onClick = () => {
-    setIsDarkTheme(!isDarkTheme);
+    themeToggler();
   };
 
   const baseClassNames = cn(
@@ -34,7 +34,7 @@ const ThemeToggler: FC = () => {
         <>
           Dark
           <Icon
-            icon={IconsEnum.Light_bulb}
+            icon={IconsEnum.Bulb}
             size={36}
             removeInlineStyle
             className={styles["light-icon"]}

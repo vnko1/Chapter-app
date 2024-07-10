@@ -6,24 +6,24 @@ import { ThemeProviderContext } from "./hook";
 import { ThemeProviderProps } from "./ThemeProvider.type";
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(
-    getDataFromLS("theme") === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-  );
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
-    if (isDarkTheme) {
-      document.documentElement.classList.add("dark");
-      setDataToLS({ theme: "dark" });
-    } else {
-      document.documentElement.classList.remove("dark");
-      setDataToLS({ theme: "light" });
-    }
+    setIsDarkTheme(getDataFromLS<boolean>("isDarkTheme") || false);
   }, [isDarkTheme]);
 
+  useEffect(() => {
+    isDarkTheme && document.documentElement.classList.add("dark");
+    !isDarkTheme && document.documentElement.classList.remove("dark");
+  }, [isDarkTheme]);
+
+  const themeToggler = () => {
+    setIsDarkTheme(!isDarkTheme);
+    setDataToLS({ isDarkTheme: !isDarkTheme });
+  };
+
   return (
-    <ThemeProviderContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
+    <ThemeProviderContext.Provider value={{ isDarkTheme, themeToggler }}>
       {children}
     </ThemeProviderContext.Provider>
   );

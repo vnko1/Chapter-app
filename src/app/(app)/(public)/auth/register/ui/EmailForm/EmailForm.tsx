@@ -9,7 +9,7 @@ import { CustomError } from "@/services";
 import { Button, TextField } from "@/components";
 import { emailCreate } from "@/lib/actions";
 
-import { ErrorMessage } from "@/app/ui";
+import { ErrorMessage } from "@/app/(app)/ui";
 import styles from "../Form.module.scss";
 import { EmailFormProps } from "./EmailForm.type";
 import { EmailFormValue, emailSchema } from "./validationSchema";
