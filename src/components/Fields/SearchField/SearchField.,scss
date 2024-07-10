@@ -1,0 +1,8 @@
+.search {
+  @apply relative flex items-center gap-0-md w-full py-0-md px-1-lg bg-grey-1030 focus-within:border focus-within:border-black transition-all duration-75;
+
+  &__field {
+    @apply block w-full outline-none bg-transparent;
+    // bg-transparent
+  }
+}
