@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useNavigationToggler } from "@/context";
 import { LinksEnum } from "@/types";
 
-import { MenuToggler, ThemeToggler } from "@/app/ui";
+import { Logo, MenuToggler, ThemeToggler } from "@/app/ui";
 
 import { Avatar } from "..";
 
@@ -28,6 +28,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = () => {
       className={`${styles["profile-header"]} bg-bg-primary-light dark:bg-bg-primary-dark`}
     >
       <div className={styles["profile-header__container"]}>
+        <Logo classNames="hidden lg:block" />
         <MenuToggler
           isActive={isActiveMenu}
           classNames={styles["profile-header__menu-toggler"]}

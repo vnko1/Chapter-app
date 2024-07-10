@@ -2,26 +2,25 @@
 import React, { FC } from "react";
 import cn from "classnames";
 
-import { useThemeToggler } from "@/hooks";
-
-import styles from "./ThemeToggler.module.scss";
 import { Icon } from "@/components";
 import { IconsEnum } from "@/types";
+import styles from "./ThemeToggler.module.scss";
+import { useThemeProviderContext } from "@/context";
 
 const ThemeToggler: FC = () => {
-  const { toggleTheme, getCurrentTheme } = useThemeToggler();
+  const { isDarkTheme, setIsDarkTheme } = useThemeProviderContext();
 
   const onClick = () => {
-    toggleTheme();
+    setIsDarkTheme(!isDarkTheme);
   };
 
   const baseClassNames = cn(
     styles["button"],
-    getCurrentTheme() ? styles["light"] : styles["dark"]
+    !isDarkTheme ? styles["light"] : styles["dark"]
   );
   return (
     <button onClick={onClick} className={baseClassNames}>
-      {getCurrentTheme() ? (
+      {!isDarkTheme ? (
         <>
           <Icon
             icon={IconsEnum.Light_bulb}

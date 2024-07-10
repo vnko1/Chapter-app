@@ -6,3 +6,6 @@ export * from "./Profile/hook";
 
 export { default as NavigationTogglerProvider } from "./NavigationToggler/NavigationTogglerProvider";
 export * from "./NavigationToggler/hook";
+
+export { default as ThemeProvider } from "./ThemeProvider/ThemeProvider";
+export * from "./ThemeProvider/hook";

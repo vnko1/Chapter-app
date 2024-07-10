@@ -3,14 +3,14 @@ import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { useThemeToggler } from "@/hooks";
+import { useThemeProviderContext } from "@/context";
 import { LinksEnum } from "@/types";
 
 import { LogoProps } from "./Logo.type";
 import { usePathname } from "next/navigation";
 
 const Logo: FC<LogoProps> = ({ classNames, hideLogo }) => {
-  const { getCurrentTheme } = useThemeToggler();
+  const { isDarkTheme } = useThemeProviderContext();
   const pathName = usePathname();
   if (hideLogo && pathName === "/") return null;
 
@@ -20,7 +20,7 @@ const Logo: FC<LogoProps> = ({ classNames, hideLogo }) => {
         <Image
           width={276}
           height={74}
-          src={getCurrentTheme() ? "/logo-dark.webp" : "/logo-light.webp"}
+          src={isDarkTheme ? "/logo-dark.webp" : "/logo-light.webp"}
           alt="logo"
           priority
         />
