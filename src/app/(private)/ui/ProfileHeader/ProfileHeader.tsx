@@ -3,6 +3,8 @@ import { FC } from "react";
 import { usePathname } from "next/navigation";
 
 import { useNavigationToggler } from "@/context";
+import { LinksEnum } from "@/types";
+
 import { MenuToggler, ThemeToggler } from "@/app/ui";
 
 import { Avatar } from "..";
@@ -11,8 +13,9 @@ import { ProfileHeaderProps } from "./ProfileHeader.type";
 import styles from "./ProfileHeader.module.scss";
 
 function getPathName(pathName: string) {
-  if (pathName === "/" || pathName.startsWith("/dashboard")) return "Dashboard";
-
+  if (pathName === LinksEnum.HOME || pathName.startsWith(LinksEnum.DASHBOARD))
+    return "Dashboard";
+  if (pathName === LinksEnum.SEARCH) return "Search";
   return "";
 }
 
