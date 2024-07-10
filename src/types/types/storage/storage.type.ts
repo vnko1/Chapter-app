@@ -1,3 +1,3 @@
 export type StorageKeyValue = {
-  [key: string]: string | number | string[];
+  [key: string]: string | number | string[] | boolean;
 };

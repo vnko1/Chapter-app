@@ -1,7 +1,9 @@
 .title {
-  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold mb-2-xs md:text-h_base md:font-semibold md:leading-h_xl md:tracking-[0.792px] lg:text-h_xl lg:leading-h1_xs lg:tracking-[1.144px] lg:mb-4-xs lg:max-w-[886px];
+  @apply text-center text-xl leading-h_xs tracking-[0.528px] font-bold mb-2-xs md:text-h_base md:font-semibold md:leading-h_xl md:tracking-[0.792px] lg:text-h_xl lg:leading-h1_xs lg:tracking-[1.144px] lg:mb-4-xs lg:max-w-[886px] z-[998];
 }
-
+.menu {
+  @apply z-[999];
+}
 .links {
   @apply flex flex-wrap gap-2-xs justify-center md:gap-4-xs;
 }

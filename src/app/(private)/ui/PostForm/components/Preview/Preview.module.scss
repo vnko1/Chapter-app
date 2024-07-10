@@ -1,0 +1,33 @@
+.preview {
+  @apply flex flex-col gap-1-sm md:gap-2-xs;
+
+  &__text {
+    @apply flex flex-col gap-0-xl md:gap-1-sm;
+  }
+}
+
+.buttons {
+  @apply flex flex-col gap-0-xl md:flex-row md:gap-2-xs justify-center items-center;
+}
+
+.button {
+  &--mob {
+    @apply md:max-w-[224px] lg:hidden;
+  }
+
+  &--desc {
+    @apply hidden lg:flex lg:max-w-[224px];
+  }
+}
+
+.title {
+  @apply text-base font-medium leading-xl tracking-[0.176px] md:text-lg md:font-semibold md:leading-h_xs md:tracking-[0.22px] lg:tracking-[0.44px];
+}
+
+.text {
+  @apply text-sm font-normal leading-lg tracking-[0.154px] md:text-base md:leading-xl md:tracking-[0.176px];
+}
+
+.error {
+  @apply text-xxs text-center mt-2;
+}

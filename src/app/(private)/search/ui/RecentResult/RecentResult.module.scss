@@ -1,0 +1,11 @@
+.title {
+  @apply text-base font-medium leading-xl tracking-[0.176px] md:text-lg md:font-semibold md:leading-h_xs md:tracking-[0.22px];
+}
+
+.list {
+  @apply flex flex-col gap-1-sm;
+}
+
+.button.button-custom {
+  @apply pl-0;
+}

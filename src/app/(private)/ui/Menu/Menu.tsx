@@ -40,7 +40,10 @@ const Menu: FC<MenuProps> = (props) => {
         <li>
           <button
             className="side-bar-menu-btn"
-            onClick={() => contactUs.setActive(true)}
+            onClick={() => {
+              // props.close();
+              contactUs.setActive(true);
+            }}
           >
             <Icon
               size={32}

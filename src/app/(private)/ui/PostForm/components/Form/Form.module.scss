@@ -1,0 +1,26 @@
+.form {
+  @apply flex flex-col gap-0-xl md:gap-2-xs;
+
+  &__text-area {
+    @apply h-[152px] md:h-[148px];
+  }
+
+  &__button {
+    @apply max-w-[208px] mx-auto;
+    &--mob {
+      @apply lg:hidden;
+    }
+
+    &--desc {
+      @apply hidden lg:flex;
+    }
+  }
+}
+
+.image-button {
+  @apply flex gap-0-md items-center;
+
+  & > span {
+    @apply text-xxs font-normal leading-sm md:text-xs md:leading-base md:tracking-[0.132px];
+  }
+}

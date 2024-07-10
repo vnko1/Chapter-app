@@ -37,7 +37,11 @@
     }
   }
 
+  .private-section {
+    @apply lg:pl-[376px];
+  }
+
   .private-container {
-    @apply w-full mx-auto flex flex-col;
+    @apply w-full mx-auto flex flex-col bg-bg-primary-light dark:bg-bg-primary-dark rounded-[12px] p-2-xs md:max-w-[664px] lg:max-w-[962px];
   }
 }

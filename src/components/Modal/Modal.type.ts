@@ -3,5 +3,5 @@ import { IModal } from "@/types";
 
 export type ModalProps = {
   children: ReactNode;
-  side: "lSideSwipe" | "rSideSwipe";
+  side?: "lSideSwipe" | "rSideSwipe";
 } & IModal;

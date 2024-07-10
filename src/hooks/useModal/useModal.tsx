@@ -4,7 +4,6 @@ import { useState } from "react";
 export const useModal = () => {
   const [active, setActive] = useState(false);
   const [visible, setVisible] = useState(false);
-
   const close = () => {
     setVisible(false);
     setTimeout(() => {

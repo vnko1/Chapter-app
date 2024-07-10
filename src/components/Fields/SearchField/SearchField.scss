@@ -1,0 +1,36 @@
+.search {
+  @apply relative w-full;
+
+  &__field {
+    @apply transition-all duration-150 block w-full rounded-md outline-none border bg-text-secondary-dark dark:bg-[#1A1104] text-[#291A04] dark:text-text-secondary-dark border-line-primary-light dark:border-[#1F1405];
+
+    &:placeholder-shown {
+      @apply text-text-subtitle-light dark:text-text-subtitle-dark;
+    }
+
+    &:active,
+    &:hover,
+    &:focus {
+      @apply text-[#291A04] dark:text-text-secondary-dark border-primary-default-light dark:border-primary-default-dark;
+    }
+
+    &:disabled {
+      @apply bg-primary-disabled-light dark:bg-primary-disabled-dark text-line-disabled-light dark:text-line-disabled-dark border-line-disabled-light dark:border-line-disabled-dark;
+    }
+
+    &--small {
+      @apply py-0-xl pl-4-xs pr-1-sm text-sm font-normal leading-lg tracking-[0.154px];
+    }
+
+    &--normal {
+      @apply py-0-xl pr-1-lg pl-4-xs text-base font-medium leading-xl tracking-[0.176px];
+    }
+
+    &--large {
+      @apply py-0-xl pr-1-lg pl-[52px] text-base font-medium leading-xl tracking-[0.176px];
+    }
+  }
+  &__icon {
+    @apply absolute top-1/2 -translate-y-1/2 left-[12px] stroke-[#291A04] dark:stroke-text-secondary-dark;
+  }
+}

@@ -6,17 +6,16 @@ import cn from "classnames";
 
 import { useNavigationToggler } from "@/context";
 import { Icon } from "@/components";
+import { useModal } from "@/hooks";
 import { IconsEnum, LinksEnum } from "@/types";
 
-import { Menu } from "..";
-
+import { Menu, PostForm } from "..";
 import "./SideBarNavigation.scss";
-import { useModal } from "@/hooks";
 
 const items = [
   { icon: IconsEnum.Home, href: LinksEnum.DASHBOARD, text: "Feed" },
   { icon: IconsEnum.Message, href: LinksEnum.Chat, text: "Messages" },
-  { icon: IconsEnum.Add, href: LinksEnum.Add_post, text: "Add post" },
+  { icon: IconsEnum.Add_rect, href: LinksEnum.Add_post, text: "Add post" },
   {
     icon: IconsEnum.Notification,
     href: LinksEnum.NOTIFICATION,
@@ -26,31 +25,60 @@ const items = [
 ];
 
 const SideBarNavigation: FC = () => {
-  const { isActiveMenu } = useNavigationToggler();
+  const { isActiveMenu, setIsActiveMenu } = useNavigationToggler();
   const pathName = usePathname();
   const menu = useModal();
+  const postForm = useModal();
 
   return (
     <div className={cn("sidebar-nav", { ["active"]: isActiveMenu })}>
       <ul className="sidebar-nav__list">
-        {items.map((el, index) => (
-          <li key={index}>
-            <Link
-              href={el.href}
-              className={cn("sidebar-nav__btn", {
-                ["active"]: pathName === el.href,
-              })}
-            >
-              <Icon
-                size={32}
-                icon={el.icon}
-                removeInlineStyle
-                className="sidebar-nav__btn-icon"
-              />
-              <span className="sidebar-nav__btn-text">{el.text}</span>
-            </Link>
-          </li>
-        ))}
+        {items.map((el, index) => {
+          if (el.href === LinksEnum.Add_post)
+            return (
+              <li key={index}>
+                <button
+                  onClick={() => {
+                    postForm.setActive(true);
+                    setIsActiveMenu && setIsActiveMenu(false);
+                  }}
+                  className={cn("sidebar-nav__btn", {
+                    ["active"]: pathName === el.href,
+                  })}
+                >
+                  <Icon
+                    size={32}
+                    icon={el.icon}
+                    removeInlineStyle
+                    className="sidebar-nav__btn-icon"
+                  />
+                  <span className="sidebar-nav__btn-text">{el.text}</span>
+                </button>
+              </li>
+            );
+
+          return (
+            <li key={index}>
+              <Link
+                onClick={() => {
+                  setIsActiveMenu && setIsActiveMenu(false);
+                }}
+                href={el.href}
+                className={cn("sidebar-nav__btn", {
+                  ["active"]: pathName === el.href,
+                })}
+              >
+                <Icon
+                  size={32}
+                  icon={el.icon}
+                  removeInlineStyle
+                  className="sidebar-nav__btn-icon"
+                />
+                <span className="sidebar-nav__btn-text">{el.text}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <button
         className={cn("sidebar-nav__btn")}
@@ -60,11 +88,12 @@ const SideBarNavigation: FC = () => {
           size={32}
           icon={IconsEnum.Menu}
           removeInlineStyle
-          className="sidebar-nav__btn-icon"
+          className="sidebar-nav__btn-icon menu"
         />
         <span className="sidebar-nav__btn-text">More</span>
       </button>
       <Menu {...menu} />
+      <PostForm {...postForm} />
     </div>
   );
 };

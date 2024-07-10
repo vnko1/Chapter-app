@@ -3,7 +3,9 @@ import { FC } from "react";
 import { usePathname } from "next/navigation";
 
 import { useNavigationToggler } from "@/context";
-import { MenuToggler, ThemeToggler } from "@/app/ui";
+import { LinksEnum } from "@/types";
+
+import { Logo, MenuToggler, ThemeToggler } from "@/app/ui";
 
 import { Avatar } from "..";
 
@@ -11,8 +13,9 @@ import { ProfileHeaderProps } from "./ProfileHeader.type";
 import styles from "./ProfileHeader.module.scss";
 
 function getPathName(pathName: string) {
-  if (pathName === "/" || pathName.startsWith("/dashboard")) return "Dashboard";
-
+  if (pathName === LinksEnum.HOME || pathName.startsWith(LinksEnum.DASHBOARD))
+    return "Dashboard";
+  if (pathName === LinksEnum.SEARCH) return "Search";
   return "";
 }
 
@@ -25,6 +28,7 @@ const ProfileHeader: FC<ProfileHeaderProps> = () => {
       className={`${styles["profile-header"]} bg-bg-primary-light dark:bg-bg-primary-dark`}
     >
       <div className={styles["profile-header__container"]}>
+        <Logo classNames="hidden lg:block" />
         <MenuToggler
           isActive={isActiveMenu}
           classNames={styles["profile-header__menu-toggler"]}

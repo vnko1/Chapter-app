@@ -19,8 +19,9 @@ const Avatar: FC<AvatarProps> = ({ classNames }) => {
       className={`${styles["avatar"]} ${classNames}`}
     >
       <Image
-        src={user.avatarUrl ? user.avatarUrl : default_avatar}
+        src={user?.avatarUrl || default_avatar}
         alt="avatar"
+        className={styles["avatar"]}
         fill
         id="avatar"
         style={{ objectFit: "cover" }}

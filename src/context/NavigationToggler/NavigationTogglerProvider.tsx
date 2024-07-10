@@ -12,18 +12,6 @@ export default function NavigationTogglerProvider({
 }: NavigationTogglerContextProps) {
   const [isActiveMenu, setIsActiveMenu] = useState(false);
 
-  // useEffect(() => {
-  //   if (isActiveMenu) {
-  //     document.body.classList.add(navActiveClassName);
-  //   } else {
-  //     document.body.classList.remove(navActiveClassName);
-  //   }
-
-  //   return () => {
-  //     document.body.classList.remove(navActiveClassName);
-  //   };
-  // }, [isActiveMenu]);
-
   return (
     <NavigationTogglerStateContext.Provider
       value={{ ...props, isActiveMenu, setIsActiveMenu }}
