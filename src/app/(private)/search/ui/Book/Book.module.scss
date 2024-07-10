@@ -1,0 +1,14 @@
+.link {
+  @apply flex  items-center gap-1-xs text-base no-underline md:text-lg md:font-semibold hover:no-underline;
+}
+
+.title {
+  @apply hyphens-auto;
+  &.page {
+    @apply w-[138px] md:w-[231px]  lg:w-[386px];
+  }
+}
+
+.image {
+  @apply w-[44px] h-[44px] md:w-[52px] md:h-[52px] rounded-[16px];
+}

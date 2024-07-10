@@ -25,7 +25,7 @@ const items = [
 ];
 
 const SideBarNavigation: FC = () => {
-  const { isActiveMenu } = useNavigationToggler();
+  const { isActiveMenu, setIsActiveMenu } = useNavigationToggler();
   const pathName = usePathname();
   const menu = useModal();
   const postForm = useModal();
@@ -40,6 +40,7 @@ const SideBarNavigation: FC = () => {
                 <button
                   onClick={() => {
                     postForm.setActive(true);
+                    setIsActiveMenu && setIsActiveMenu(false);
                   }}
                   className={cn("sidebar-nav__btn", {
                     ["active"]: pathName === el.href,
@@ -59,6 +60,9 @@ const SideBarNavigation: FC = () => {
           return (
             <li key={index}>
               <Link
+                onClick={() => {
+                  setIsActiveMenu && setIsActiveMenu(false);
+                }}
                 href={el.href}
                 className={cn("sidebar-nav__btn", {
                   ["active"]: pathName === el.href,
