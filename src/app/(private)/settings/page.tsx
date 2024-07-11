@@ -5,6 +5,8 @@ import { ThemeToggler } from "@/app/ui";
 import { PasswordChange } from "./ui";
 
 import styles from "./settingsPage.module.scss";
+import Link from "next/link";
+import { LinksEnum } from "@/types";
 
 function SettingsPage() {
   return (
@@ -23,7 +25,10 @@ function SettingsPage() {
       </section>
       <section className="private-section">
         <div className={`private-container ${styles["terms"]}`}>
-          Settings Page
+          <h2 className={styles["title"]}>Terms and conditions</h2>
+          <Link href={LinksEnum.TERMS} className={styles["link"]}>
+            Terms & Conditions and Privacy Policy
+          </Link>
         </div>
       </section>
       <section className="private-section">
