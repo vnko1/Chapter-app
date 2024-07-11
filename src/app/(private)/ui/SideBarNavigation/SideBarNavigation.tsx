@@ -92,7 +92,7 @@ const SideBarNavigation: FC = () => {
         />
         <span className="sidebar-nav__btn-text">More</span>
       </button>
-      <Menu {...menu} />
+      <Menu {...menu} setIsActiveMenu={setIsActiveMenu} />
       <PostForm {...postForm} />
     </div>
   );

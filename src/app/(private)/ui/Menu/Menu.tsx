@@ -41,7 +41,6 @@ const Menu: FC<MenuProps> = (props) => {
           <button
             className="side-bar-menu-btn"
             onClick={() => {
-              // props.close();
               contactUs.setActive(true);
             }}
           >
@@ -55,7 +54,14 @@ const Menu: FC<MenuProps> = (props) => {
           </button>
         </li>
         <li>
-          <Link className="side-bar-menu-btn" href={LinksEnum.SETTINGS}>
+          <Link
+            className="side-bar-menu-btn"
+            href={LinksEnum.SETTINGS}
+            onClick={() => {
+              props.close();
+              props.setIsActiveMenu && props.setIsActiveMenu(false);
+            }}
+          >
             <Icon
               size={32}
               icon={IconsEnum.Settings}
