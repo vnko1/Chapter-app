@@ -13,7 +13,7 @@ import styles from "./PasswordChange.module.scss";
 const initialValues = { password: "", newPassword: "", confirmNewPassword: "" };
 const PasswordChange: FC = () => {
   const methods = useForm<FormValues>({
-    defaultValues: initialValues,
+    values: initialValues,
     resolver: zodResolver(passwordSchema),
     mode: "onBlur",
   });
@@ -40,7 +40,9 @@ const PasswordChange: FC = () => {
     }
   };
 
-  const cancelClick = () => {};
+  const cancelClick = () => {
+    reset(initialValues);
+  };
 
   return (
     <FormProvider {...methods}>
