@@ -19,7 +19,7 @@ const PasswordChange: FC = () => {
   });
   const {
     handleSubmit,
-    formState: { isSubmitting, isValid, errors },
+    formState: { isSubmitting, isValid, isDirty, errors },
     reset,
     setError,
   } = methods;
@@ -84,10 +84,33 @@ const PasswordChange: FC = () => {
           <Button
             type="button"
             isLoading={isSubmitting}
-            onClick={}
-            disabled={!isValid}
+            onClick={cancelClick}
+            disabled={!isDirty}
             fullWidth
             classNames={`${styles["button"]} ${styles["button--mob"]}`}
+            aria-label="Submit form button"
+          >
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            isLoading={isSubmitting}
+            disabled={!isValid}
+            fullWidth
+            size="large"
+            classNames={`${styles["button"]} ${styles["button--desc"]}`}
+            aria-label="Submit form button"
+          >
+            Save changes
+          </Button>
+          <Button
+            type="button"
+            isLoading={isSubmitting}
+            onClick={cancelClick}
+            disabled={!isDirty}
+            size="large"
+            fullWidth
+            classNames={`${styles["button"]} ${styles["button--desc"]}`}
             aria-label="Submit form button"
           >
             Cancel
