@@ -1,3 +1,17 @@
 .settings {
   @apply flex flex-col gap-1-lg md:gap-2-xs lg:gap-4-xs;
 }
+
+.title {
+  @apply text-base font-medium leading-xl tracking-[0.176px] md:text-lg md:font-semibold md:leading-h_xs md:tracking-[0.44px] lg:text-xl lg:font-medium lg:leading-h_base lg:tracking-[0.528px];
+}
+
+.theme {
+  @apply flex-row justify-between;
+}
+
+.password,
+.terms,
+.delete {
+  @apply gap-2-xs;
+}
