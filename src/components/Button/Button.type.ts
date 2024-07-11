@@ -1,12 +1,8 @@
 import { ButtonHTMLAttributes } from "react";
 import { IconsEnum } from "@/types";
 
-type ButtonVariantType =
-  | "outlined"
-  | "contained"
-  | "text"
-  | "error"
-  | "positive";
+type ButtonVariantType = "outlined" | "contained" | "text";
+
 type ButtonSizeType = "small" | "normal" | "large";
 type ButtonColorType = "primary" | "secondary" | "error" | "positive";
 type AlignIconType = "left" | "right";

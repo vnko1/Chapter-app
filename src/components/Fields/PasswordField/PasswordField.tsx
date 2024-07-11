@@ -27,10 +27,8 @@ const PasswordField: FC<PasswordFieldProps> = ({
   ...props
 }) => {
   const { field } = useController({ name });
-  const { register, setValue, getFieldState, getValues } = useFormContext();
+  const { register, getFieldState } = useFormContext();
   const { error, isTouched } = getFieldState(name);
-
-  const values = getValues(name);
 
   const [isVisiblePassword, setIsVisiblePassword] = useState<boolean>(false);
   const { passwordStrength, passwordValue, LENGTH_STRENGTH, onHandleChange } =
@@ -57,11 +55,10 @@ const PasswordField: FC<PasswordFieldProps> = ({
   const inputBaseClassNames = cn("pass-field__input", inputSizeClassNames);
 
   const onHandleChangeField = (event: ChangeEvent<HTMLInputElement>) => {
-    field.onChange(event);
     event.target.value = event.target.value
       .replace(" ", "")
       .replace(emojiRegex, "");
-    setValue(name, event.target.value);
+    field.onChange(event);
     onHandleChange(event.target.value);
     onChange && onChange(event);
   };
@@ -82,9 +79,10 @@ const PasswordField: FC<PasswordFieldProps> = ({
             onBlur={field.onBlur}
             ref={field.ref}
             autoComplete="off"
+            value={field.value}
           />
 
-          {values?.length ? (
+          {field.value?.length ? (
             <Icon
               icon={!isVisiblePassword ? IconsEnum.Eye : IconsEnum.Non_eye}
               size={iconSize}
@@ -96,7 +94,7 @@ const PasswordField: FC<PasswordFieldProps> = ({
           ) : null}
         </div>
       </label>
-      {strength && !helperText && values && !isTouched && (
+      {strength && !helperText && field.value && !isTouched && (
         <p className="pass-field__requirements">{strengthMessage}</p>
       )}
       <div className="pass-field__helper-box">
@@ -110,7 +108,10 @@ const PasswordField: FC<PasswordFieldProps> = ({
           </Link>
         ) : null}
       </div>
-      {strength && passwordValue && values.length && passwordStrength >= 0 ? (
+      {strength &&
+      passwordValue &&
+      field.value.length &&
+      passwordStrength >= 0 ? (
         <div
           className={cn(
             "strength-progress",
