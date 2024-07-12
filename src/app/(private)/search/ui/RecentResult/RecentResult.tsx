@@ -26,7 +26,7 @@ const RecentResult: FC<RecentResultProps> = ({ query }) => {
   };
 
   return (
-    <>
+    <div>
       <p
         className={`${styles["title"]} text-text-primary-light dark:text-text-primary-dark`}
       >
@@ -47,7 +47,7 @@ const RecentResult: FC<RecentResultProps> = ({ query }) => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

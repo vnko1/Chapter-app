@@ -15,7 +15,6 @@ export async function middleware(req: NextRequest) {
   if (isLoggedIn) {
     if (currentPath.endsWith(LinksEnum.HOME))
       return NextResponse.rewrite(new URL(LinksEnum.DASHBOARD, req.url));
-
     if (currentPath.startsWith(LinksEnum.AUTH))
       return NextResponse.rewrite(new URL(LinksEnum.DASHBOARD, req.url));
   }
@@ -24,6 +23,8 @@ export async function middleware(req: NextRequest) {
     if (currentPath.startsWith(LinksEnum.DASHBOARD))
       return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
     if (currentPath.startsWith(LinksEnum.SEARCH))
+      return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
+    if (currentPath.startsWith(LinksEnum.Chat))
       return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
   }
 

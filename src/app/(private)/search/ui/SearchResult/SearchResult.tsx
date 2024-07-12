@@ -55,11 +55,11 @@ const SearchResult: FC<SearchResultProps> = ({ searchResult }) => {
   ) : null;
 
   return (
-    <>
+    <div>
       {renderUsersRes}
       {renderPostsRes}
       {renderBooksRes}
-    </>
+    </div>
   );
 };
 

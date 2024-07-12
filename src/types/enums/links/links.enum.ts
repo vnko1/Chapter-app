@@ -18,7 +18,7 @@ export enum LinksEnum {
   GUEST_BOOKS = "/:id/books",
   NOTIFICATION = "/notifications",
   POST = "/post",
-  Chat = "/chat",
+  Chat = "/messages",
   Add_post = "/add",
 }
 
