@@ -26,6 +26,8 @@ export async function middleware(req: NextRequest) {
       return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
     if (currentPath.startsWith(LinksEnum.Chat))
       return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
+    if (currentPath.startsWith(LinksEnum.NOTIFICATION))
+      return NextResponse.rewrite(new URL(LinksEnum.LOG_IN, req.url));
   }
 
   return NextResponse.next();
