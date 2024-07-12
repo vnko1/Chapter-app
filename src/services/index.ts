@@ -1,1 +1,1 @@
-export * from "./error/error.service";
+export * from "./customError/customError.service";
